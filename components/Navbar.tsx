@@ -24,10 +24,10 @@ export default function Navbar() {
               className="object-contain"
             />
 
-            <h1 className="hidden text-2xl font-black tracking-tight sm:block">
+            {/* <h1 className="hidden text-xl font-black tracking-tight sm:block">
               <span className="text-blue-700">Dwell</span>
               <span className="text-emerald-500">Sync</span>
-            </h1>
+            </h1> */}
           </Link>
 
           {/* DESKTOP NAV */}
