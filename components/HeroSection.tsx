@@ -51,7 +51,7 @@ export default function HeroSection() {
 
                 <input
                   type="text"
-                  placeholder="Find a self contain under 400k near UNIPORT"
+                  placeholder="Find a self contain under 400k near UNIABUJA"
                   className="w-full bg-transparent text-sm outline-none placeholder:text-slate-400"
                 />
               </div>
@@ -254,7 +254,7 @@ export default function HeroSection() {
               </div>
 
               <div className="ml-auto w-fit rounded-2xl bg-blue-600 px-4 py-3 text-xs leading-5 text-white">
-                Self contain under 400k near UNIPORT
+                Self contain under 400k near UNIABUJA
               </div>
 
               <div className="flex gap-1">
