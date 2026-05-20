@@ -19,19 +19,24 @@ export default function Footer() {
           <div className="md:col-span-1">
             {/* Logo */}
             <div className="flex items-center gap-3">
-              <div className="relative w-[52px] h-[52px]">
-                <Image
-                  src="https://cdn-icons-png.flaticon.com/512/942/942748.png"
-                  alt="Dwell Sync Logo"
-                  fill
-                  className="object-contain"
-                />
-              </div>
+              <div className="relative">
+                 
+          {/* LOGO */}
+          <Link href="/" className="flex items-center gap-3">
+            <Image
+              src="/images/DwellSync.png"
+              alt="Dwell Sync Logo"
+              width={150}
+              height={150}
+              className="object-contain"
+            />
 
-              <h2 className="text-[38px] font-bold leading-none tracking-tight">
-                <span className="text-[#155EEF]">Dwell</span>
-                <span className="text-[#12B76A]">Sync</span>
-              </h2>
+            {/* <h1 className="hidden text-xl font-black tracking-tight sm:block">
+              <span className="text-blue-700">Dwell</span>
+              <span className="text-emerald-500">Sync</span>
+            </h1> */}
+          </Link>
+              </div>
             </div>
 
             {/* Description */}
@@ -208,7 +213,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-200 mt-12 pt-6">
           <p className="text-center text-[16px] text-gray-500">
-            © 2026 Dwell Sync. All rights reserved.
+            © 2026 Powered ZieTech Developments Group. All rights reserved.
           </p>
         </div>
       </div>
