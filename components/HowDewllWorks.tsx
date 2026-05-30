@@ -92,7 +92,8 @@ export default function HowDwellWorks() {
             )
           })}
         </div>
-      </div>
+      </div> 
     </section>
   )
 }
+

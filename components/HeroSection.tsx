@@ -1,271 +1,216 @@
-import Image from 'next/image'
+"use client";
+
+import { motion } from "framer-motion";
 import {
-  Sparkles,
   Search,
   Home,
-  MessageCircle,
-  Wifi,
-  Star,
-  ShieldCheck,
-  Lightbulb,
-} from 'lucide-react'
+  Car,
+  Truck,
+  Store,
+  Wrench,
+  Sparkles,
+  ArrowRight,
+} from "lucide-react";
+import Image from "next/image";
+
+const services = [
+  {
+    title: "Accommodation",
+    description: "Find your perfect stay",
+    icon: Home,
+  },
+  {
+    title: "Transportation",
+    description: "Book your ride",
+    icon: Car,
+  },
+  {
+    title: "Logistics",
+    description: "Deliver anything",
+    icon: Truck,
+  },
+  {
+    title: "Businesses",
+    description: "Shop & discover",
+    icon: Store,
+  },
+  {
+    title: "Services",
+    description: "Book trusted pros",
+    icon: Wrench,
+  },
+];
 
 export default function HeroSection() {
   return (
-    <section className="overflow-hidden bg-[#F8FAFC] py-12 lg:py-16">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-2 lg:items-center">
+    <section className="relative min-h-[calc(100vh-80px)] overflow-hidden bg-[#0B0B16]">
+      {/* Background Glow */}
+      <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-purple-700/10 blur-[140px]" />
+      <div className="absolute right-0 top-20 h-[500px] w-[500px] rounded-full bg-indigo-700/10 blur-[140px]" />
 
-        {/* LEFT CONTENT */}
-        <div>
-          
-          {/* BADGE */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2 shadow-sm">
-            <Sparkles className="h-3.5 w-3.5 text-blue-600" />
+      <div className="relative mx-auto flex min-h-[calc(100vh-80px)] max-w-7xl items-center px-5 lg:px-10">
+        <div className="grid w-full gap-10 lg:grid-cols-2 lg:gap-16">
+          {/* LEFT CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col justify-center"
+          >
+            {/* Badge */}
+            <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/10 px-4 py-2">
+              <Sparkles className="h-4 w-4 text-[#8B7CFF]" />
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#A99EFF]">
+                AI-Powered. Community Driven.
+              </span>
+            </div>
 
-            <span className="bg-gradient-to-r from-blue-600 to-emerald-500 bg-clip-text text-[11px] font-bold text-transparent">
-              AI-POWERED HOUSING PLATFORM
-            </span>
-          </div>
+            {/* Heading */}
+            <h1 className="max-w-xl text-5xl font-bold leading-tight text-white lg:text-7xl">
+              Live.
+              <br />
+              Relocate.
+              <br />
+              Connect.{" "}
+              <span className="bg-gradient-to-r from-[#8B7CFF] via-[#A78BFA] to-[#6C4AF2] bg-clip-text text-transparent">
+                Thrive.
+              </span>
+            </h1>
 
-          {/* HEADING */}
-          <h1 className="mt-6 max-w-xl text-4xl font-black leading-tight tracking-tight text-slate-900 lg:text-5xl">
-            Find Trusted Student Accommodation
-            <span className="block text-blue-600">
-              Without Agent Stress
-            </span>
-          </h1>
+            {/* Description */}
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-gray-400">
+              DwellSync is an all-in-one infrastructure that connects
+              accommodation, transportation, logistics, businesses and
+              services into one intelligent ecosystem.
+            </p>
 
-          {/* DESCRIPTION */}
-          <p className="mt-5 max-w-lg text-base leading-7 text-slate-600">
-            Dwell Sync uses AI to help you discover verified apartments,
-            compare prices, and move in with confidence.
-            Built for students and local communities.
-          </p>
+            {/* Search Box */}
+            <div className="mt-8">
+              <div className="flex overflow-hidden rounded-2xl border border-purple-800/20 bg-[#141424] shadow-xl">
+                <div className="flex flex-1 items-center gap-3 px-5">
+                  <Search className="h-5 w-5 text-gray-500" />
 
-          {/* SEARCH */}
-          <div className="mt-7 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              
-              <div className="flex flex-1 items-center gap-3 px-3 py-2">
-                <Sparkles className="h-4 w-4 text-blue-600" />
+                  <input
+                    type="text"
+                    placeholder="Search for accommodation, services, businesses..."
+                    className="w-full bg-transparent py-4 text-sm text-white placeholder:text-gray-500 focus:outline-none"
+                  />
+                </div>
 
-                <input
-                  type="text"
-                  placeholder="Find a self contain under 400k near UNIABUJA"
-                  className="w-full bg-transparent text-sm outline-none placeholder:text-slate-400"
-                />
+                <button className="bg-gradient-to-r from-[#6C4AF2] to-[#8B7CFF] px-8 text-sm font-semibold text-white transition hover:opacity-90">
+                  Search
+                </button>
               </div>
 
-              <button className="rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-blue-700">
-                Search
-              </button>
-            </div>
-          </div>
-
-          {/* POPULAR SEARCHES */}
-          <div className="mt-5 flex flex-wrap items-center gap-2">
-            <span className="text-xs font-semibold text-slate-500">
-              Popular searches:
-            </span>
-
-            <button className="rounded-full bg-white px-3 py-1.5 text-xs font-medium shadow-sm">
-              Hostel near school
-            </button>
-
-            <button className="rounded-full bg-white px-3 py-1.5 text-xs font-medium shadow-sm">
-              2 bedroom apartment
-            </button>
-
-            <button className="rounded-full bg-white px-3 py-1.5 text-xs font-medium shadow-sm">
-              Roommate
-            </button>
-          </div>
-
-          {/* BUTTONS */}
-          <div className="mt-8 flex flex-wrap gap-4">
-            
-            <button className="flex items-center gap-2 rounded-2xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:scale-105">
-              <Home className="h-4 w-4" />
-              Find Accommodation
-            </button>
-
-            <button className="flex items-center gap-2 rounded-2xl border border-blue-200 bg-white px-6 py-3 text-sm font-semibold text-blue-700 transition hover:bg-blue-50">
-              <MessageCircle className="h-4 w-4" />
-              Talk to AI
-            </button>
-          </div>
-        </div>
-
-        {/* RIGHT VISUAL */}
-        <div className="relative hidden h-[500px] lg:block">
-
-          {/* MAP CARD */}
-          <div className="absolute right-0 top-0 w-[420px] overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-xl">
-            
-            <Image
-              src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1400&auto=format&fit=crop"
-              alt="Map"
-              width={1000}
-              height={700}
-              className="h-[320px] w-full object-cover opacity-90"
-            />
-
-            {/* SEARCH THIS AREA */}
-            <div className="absolute left-1/2 top-4 -translate-x-1/2 rounded-full bg-white px-4 py-2 shadow-lg">
-              <div className="flex items-center gap-2">
-                <Search className="h-3.5 w-3.5 text-blue-600" />
-
-                <span className="text-xs font-semibold">
-                  Search this area
+              {/* Popular Searches */}
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <span className="text-sm font-medium text-gray-500">
+                  Popular Searches:
                 </span>
+
+                {[
+                  "Apartments in Abuja",
+                  "Transport to Lagos",
+                  "Laundry Services",
+                  "Delivery",
+                ].map((item) => (
+                  <button
+                    key={item}
+                    className="rounded-full border border-purple-500/20 bg-purple-500/10 px-3 py-1.5 text-xs text-gray-300 transition hover:border-purple-400 hover:bg-purple-500/20"
+                  >
+                    {item}
+                  </button>
+                ))}
               </div>
             </div>
 
-            {/* LOCATION DOT */}
-            <div className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-blue-500/20">
-              <div className="h-4 w-4 rounded-full bg-blue-600" />
-            </div>
+            {/* Service Cards */}
+            <div className="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-5">
+              {services.map((service, index) => {
+                const Icon = service.icon;
 
-            {/* PRICE TAGS */}
-            <div className="absolute left-8 top-20 rounded-full bg-white px-3 py-1.5 text-xs font-bold shadow-lg">
-              ₦350k
-            </div>
+                return (
+                  <motion.div
+                    key={service.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      delay: index * 0.1,
+                    }}
+                    className="group rounded-2xl border border-purple-900/20 bg-[#131325] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/40"
+                  >
+                    <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-purple-500/10">
+                      <Icon className="h-5 w-5 text-[#8B7CFF]" />
+                    </div>
 
-            <div className="absolute right-12 top-20 rounded-full bg-white px-3 py-1.5 text-xs font-bold shadow-lg">
-              ₦450k
-            </div>
+                    <h3 className="text-sm font-semibold text-white">
+                      {service.title}
+                    </h3>
 
-            <div className="absolute bottom-16 left-10 rounded-full bg-white px-3 py-1.5 text-xs font-bold shadow-lg">
-              ₦320k
+                    <p className="mt-1 text-xs text-gray-400">
+                      {service.description}
+                    </p>
+                  </motion.div>
+                );
+              })}
             </div>
+          </motion.div>
 
-            <div className="absolute bottom-14 right-14 rounded-full bg-white px-3 py-1.5 text-xs font-bold shadow-lg">
-              ₦280k
-            </div>
-          </div>
-
-          {/* APARTMENT CARD */}
-          <div className="absolute left-0 top-16 z-20 w-[250px] rounded-[24px] border border-slate-200 bg-white p-3 shadow-2xl">
-            
-            <div className="relative">
+          {/* RIGHT CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative flex items-center justify-center"
+          >
+            {/* Main Image Container */}
+            <div className="relative h-[620px] w-full overflow-hidden rounded-[50px] border border-purple-800/20">
               <Image
-                src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop"
-                alt="Apartment"
-                width={500}
-                height={350}
-                className="h-[160px] w-full rounded-2xl object-cover"
+                src="https://images.unsplash.com/photo-1460317442991-0ec209397118?q=80&w=2000&auto=format&fit=crop"
+                alt="Luxury Apartment"
+                fill
+                priority
+                className="object-cover"
               />
 
-              <button className="absolute right-3 top-3 rounded-full bg-white p-1.5 shadow-lg">
-                ❤️
-              </button>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B16]/50 to-transparent" />
             </div>
 
-            <div className="mt-4">
-              <div className="flex items-center justify-between gap-2">
-                <h3 className="text-lg font-black text-slate-900">
-                  Modern Self Contain
-                </h3>
-
-                <div className="flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-1 text-[10px] font-bold text-emerald-700">
-                  <ShieldCheck className="h-3 w-3" />
-                  Verified
+            {/* AI Assistant Card */}
+            <motion.div
+              animate={{
+                y: [0, -10, 0],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+              }}
+              className="absolute bottom-10 right-0 w-[320px] rounded-3xl border border-purple-700/20 bg-[#161628]/95 p-5 backdrop-blur-xl"
+            >
+              <div className="flex gap-4">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-[#6C4AF2] to-[#8B7CFF]">
+                  <Sparkles className="h-7 w-7 text-white" />
                 </div>
-              </div>
-
-              <p className="mt-1 text-xs text-slate-500">
-                Choba, Port Harcourt
-              </p>
-
-              <div className="mt-3 flex items-end gap-1">
-                <span className="text-2xl font-black text-blue-600">
-                  ₦380,000
-                </span>
-
-                <span className="pb-1 text-xs text-slate-500">
-                  / year
-                </span>
-              </div>
-
-              <div className="mt-3 flex flex-wrap gap-3 text-[11px] text-slate-500">
-                <div className="flex items-center gap-1">
-                  <Home className="h-3.5 w-3.5" />
-                  Self Contain
-                </div>
-
-                <div className="flex items-center gap-1">
-                  <Wifi className="h-3.5 w-3.5" />
-                  WiFi
-                </div>
-
-                <div className="flex items-center gap-1">
-                  <Lightbulb className="h-3.5 w-3.5" />
-                  24/7
-                </div>
-              </div>
-
-              <div className="mt-3 flex items-center gap-1">
-                <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
-
-                <span className="text-xs font-semibold text-slate-700">
-                  4.8 (120)
-                </span>
-              </div>
-
-              <button className="mt-4 w-full rounded-xl border border-slate-200 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
-                View Details
-              </button>
-            </div>
-          </div>
-
-          {/* AI CHAT CARD */}
-          <div className="absolute bottom-0 right-0 z-30 w-[250px] overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-2xl">
-            
-            {/* TOP */}
-            <div className="bg-blue-600 px-4 py-4 text-white">
-              <div className="flex items-center gap-3">
-                
-                <Image
-                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop"
-                  alt="AI"
-                  width={34}
-                  height={34}
-                  className="rounded-full"
-                />
 
                 <div>
-                  <h4 className="text-sm font-bold">
-                    Dwell AI
-                  </h4>
+                  <h3 className="font-semibold text-white">
+                    Dwell AI Assistant
+                  </h3>
 
-                  <p className="text-[11px] text-blue-100">
-                    Online
+                  <p className="mt-2 text-sm text-gray-400">
+                    Get smart recommendations and personalized help.
                   </p>
+
+                  <button className="mt-3 flex items-center gap-2 text-sm font-medium text-[#8B7CFF]">
+                    Ask Dwell AI
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
                 </div>
               </div>
-            </div>
-
-            {/* CHAT BODY */}
-            <div className="space-y-4 p-4">
-              
-              <div className="rounded-2xl bg-slate-100 p-3 text-xs leading-6 text-slate-700">
-                Hi! I'm Dwell AI 👋
-                I can help you find the perfect home.
-              </div>
-
-              <div className="ml-auto w-fit rounded-2xl bg-blue-600 px-4 py-3 text-xs leading-5 text-white">
-                Self contain under 400k near UNIABUJA
-              </div>
-
-              <div className="flex gap-1">
-                <div className="h-2.5 w-2.5 rounded-full bg-slate-300" />
-                <div className="h-2.5 w-2.5 rounded-full bg-slate-300" />
-                <div className="h-2.5 w-2.5 rounded-full bg-slate-300" />
-              </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }

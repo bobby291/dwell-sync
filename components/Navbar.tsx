@@ -1,199 +1,213 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { Menu, X } from 'lucide-react'
-import { useState } from 'react'
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import {
+  Menu,
+  X,
+  Home,
+  Building2,
+  BriefcaseBusiness,
+  Bus,
+  Truck,
+  Users,
+  ChevronLeft,
+  User,
+} from "lucide-react";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    {
+      name: "Home",
+      href: "/",
+      icon: Home,
+    },
+    {
+      name: "Businesses",
+      href: "/businesses",
+      icon: Building2,
+    },
+    {
+      name: "Services",
+      href: "/services",
+      icon: BriefcaseBusiness,
+    },
+    {
+      name: "Transport",
+      href: "/transport",
+      icon: Bus,
+    },
+    {
+      name: "Logistics",
+      href: "/logistics",
+      icon: Truck,
+    },
+    {
+      name: "Community",
+      href: "/community",
+      icon: Users,
+    },
+  ];
 
   return (
     <>
-      {/* NAVBAR */}
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          
-          {/* LOGO */}
-          <Link href="/" className="flex items-center gap-3">
-            <Image
-              src="/images/DwellSync.png"
-              alt="Dwell Sync Logo"
-              width={150}
-              height={150}
-              className="object-contain"
-            />
-
-            {/* <h1 className="hidden text-xl font-black tracking-tight sm:block">
-              <span className="text-blue-700">Dwell</span>
-              <span className="text-emerald-500">Sync</span>
-            </h1> */}
-          </Link>
-
-          {/* DESKTOP NAV */}
-          <nav className="hidden items-center gap-8 md:flex">
+      {/* Desktop Navbar */}
+      <header className="sticky top-0 z-50 w-full border-b border-purple-900/20 bg-[#0B0B16]/95 backdrop-blur-xl">
+        <div className="max-w-7xl mx-auto px-5 lg:px-10">
+          <div className="h-20 flex items-center justify-between">
+            {/* Logo */}
             <Link
-              href="/accommodation"
-              className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
+              href="/"
+              className="flex items-center transition-transform duration-300 hover:scale-105"
             >
-              Find Accommodation
+              <Image
+                src="/images/Logo (2).png"
+                alt="Dwell Sync Logo"
+                width={170}
+                height={170}
+                className="object-contain"
+                priority
+              />
             </Link>
 
-            <Link
-              href="/businesses"
-              className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-8">
+              {navLinks.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.href}
+                  className={`relative text-sm font-medium transition-all duration-300 hover:text-[#7B61FF]
+                    ${
+                      item.name === "Home"
+                        ? "text-[#8B7CFF]"
+                        : "text-gray-300"
+                    }`}
+                >
+                  {item.name}
+
+                  {item.name === "Home" && (
+                    <span className="absolute -bottom-3 left-0 h-[3px] w-full rounded-full bg-gradient-to-r from-[#7B61FF] to-[#9F8CFF]" />
+                  )}
+                </Link>
+              ))}
+            </nav>
+
+            {/* Desktop Right Side */}
+            <div className="hidden lg:flex items-center gap-4">
+              <button className="group flex h-11 w-11 items-center justify-center rounded-full border border-purple-700/30 bg-[#131325] transition-all duration-300 hover:border-purple-500 hover:bg-purple-500/10">
+                <ChevronLeft
+                  size={18}
+                  className="text-[#8B7CFF] transition-transform duration-300 group-hover:-translate-x-1"
+                />
+              </button>
+
+              <button className="rounded-full bg-gradient-to-r from-[#6C4AF2] via-[#7B61FF] to-[#5A2DFF] px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-900/30 transition-all duration-300 hover:scale-105 hover:shadow-purple-700/40">
+                Join Waitlist
+              </button>
+
+              <button className="group flex h-11 w-11 items-center justify-center rounded-full border border-purple-700/30 bg-[#131325] transition-all duration-300 hover:border-purple-500 hover:bg-purple-500/10">
+                <User
+                  size={18}
+                  className="text-[#8B7CFF] transition-transform duration-300 group-hover:scale-110"
+                />
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsOpen(true)}
+              className="lg:hidden flex h-11 w-11 items-center justify-center rounded-full border border-purple-700/30 bg-[#131325]"
             >
-              Businesses
-            </Link>
-
-            <Link
-              href="/explore"
-              className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
-            >
-              Explore Areas
-            </Link>
-
-            <Link
-              href="/ai-assistant"
-              className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
-            >
-              AI Assistant
-            </Link>
-
-            <Link
-              href="/how-it-works"
-              className="text-sm font-medium text-slate-700 transition hover:text-blue-600"
-            >
-              How It Works
-            </Link>
-          </nav>
-
-          {/* DESKTOP BUTTONS */}
-          <div className="hidden items-center gap-3 md:flex">
-            <button className="rounded-xl border border-slate-300 px-5 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100">
-              Login
-            </button>
-
-            <button className="rounded-xl bg-blue-600 px-5 py-2 text-sm font-semibold text-white shadow-lg transition hover:bg-blue-700">
-              Sign Up
-            </button>
-
-            <button className="rounded-xl bg-gradient-to-r from-blue-600 to-emerald-500 px-5 py-2 text-sm font-semibold text-white shadow-xl transition hover:scale-105">
-              List Property
+              <Menu size={22} className="text-[#8B7CFF]" />
             </button>
           </div>
-
-          {/* MOBILE MENU BUTTON */}
-          <button
-            onClick={() => setIsOpen(true)}
-            className="rounded-xl border border-slate-200 p-2 md:hidden"
-          >
-            <Menu className="h-6 w-6 text-slate-700" />
-          </button>
         </div>
       </header>
 
-      {/* MOBILE OVERLAY */}
+      {/* Overlay */}
       <div
-        className={`fixed inset-0 z-[60] bg-black/40 transition-opacity duration-300 ${
+        className={`fixed inset-0 z-[90] bg-black/70 backdrop-blur-sm transition-all duration-500 ${
           isOpen
-            ? 'visible opacity-100'
-            : 'invisible opacity-0'
+            ? "opacity-100 visible"
+            : "opacity-0 invisible"
         }`}
         onClick={() => setIsOpen(false)}
       />
 
-      {/* MOBILE SIDEBAR */}
-      <div
-        className={`fixed left-0 top-0 z-[70] h-full w-[85%] max-w-sm bg-white shadow-2xl transition-transform duration-300 ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
+      {/* Mobile Sidebar */}
+      <aside
+        className={`fixed top-0 left-0 z-[100] h-screen w-[85%] max-w-sm bg-gradient-to-b from-[#0B0B16] via-[#111122] to-[#0F1020] border-r border-purple-800/20 transition-transform duration-500 ease-in-out ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        {/* TOP */}
-        <div className="flex items-center justify-between border-b border-slate-200 p-5">
-          
-          <Link
-            href="/"
-            className="flex items-center gap-3"
-            onClick={() => setIsOpen(false)}
-          >
-            <Image
-              src="/images/DwellSync.png"
-              alt="Dwell Sync Logo"
-              width={130}
-              height={130}
-              className="object-contain"
-            />
-          </Link>
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-purple-900/20 px-5 py-5">
+          <Image
+            src="/images/Logo (2).png"
+            alt="Dwell Sync Logo"
+            width={140}
+            height={140}
+            className="object-contain"
+          />
 
           <button
             onClick={() => setIsOpen(false)}
-            className="rounded-xl border border-slate-200 p-2"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#17172B]"
           >
-            <X className="h-5 w-5" />
+            <X size={22} className="text-white" />
           </button>
         </div>
 
-        {/* MOBILE LINKS */}
-        <nav className="flex flex-col p-6">
-          
-          <Link
-            href="/accommodation"
-            onClick={() => setIsOpen(false)}
-            className="rounded-xl px-4 py-4 text-base font-semibold text-slate-700 transition hover:bg-slate-100 hover:text-blue-600"
-          >
-            Find Accommodation
-          </Link>
+        {/* Mobile Links */}
+        <nav className="px-5 py-6">
+          <div className="space-y-2">
+            {navLinks.map((item, index) => {
+              const Icon = item.icon;
 
-          <Link
-            href="/businesses"
-            onClick={() => setIsOpen(false)}
-            className="rounded-xl px-4 py-4 text-base font-semibold text-slate-700 transition hover:bg-slate-100 hover:text-blue-600"
-          >
-            Businesses
-          </Link>
+              return (
+                <Link
+                  key={index}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="group flex items-center gap-4 rounded-2xl px-4 py-4 text-gray-300 transition-all duration-300 hover:bg-purple-600/15 hover:text-white"
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#17172B] transition-all duration-300 group-hover:bg-purple-600/20">
+                    <Icon
+                      size={20}
+                      className="text-[#8B7CFF]"
+                    />
+                  </div>
 
-          <Link
-            href="/explore"
-            onClick={() => setIsOpen(false)}
-            className="rounded-xl px-4 py-4 text-base font-semibold text-slate-700 transition hover:bg-slate-100 hover:text-blue-600"
-          >
-            Explore Areas
-          </Link>
+                  <span className="font-medium">
+                    {item.name}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
 
-          <Link
-            href="/ai-assistant"
-            onClick={() => setIsOpen(false)}
-            className="rounded-xl px-4 py-4 text-base font-semibold text-slate-700 transition hover:bg-slate-100 hover:text-blue-600"
-          >
-            AI Assistant
-          </Link>
+          {/* Divider */}
+          <div className="my-8 border-t border-purple-900/20" />
 
-          <Link
-            href="/how-it-works"
-            onClick={() => setIsOpen(false)}
-            className="rounded-xl px-4 py-4 text-base font-semibold text-slate-700 transition hover:bg-slate-100 hover:text-blue-600"
-          >
-            How It Works
-          </Link>
+          {/* Action Buttons */}
+          <div className="space-y-4">
+            <button className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#6C4AF2] via-[#7B61FF] to-[#5A2DFF] px-5 py-4 font-semibold text-white shadow-lg shadow-purple-900/30 transition-all duration-300 hover:scale-[1.02]">
+              Join Waitlist
+            </button>
+
+            <button className="flex w-full items-center justify-center gap-2 rounded-2xl border border-purple-700/30 bg-[#17172B] px-5 py-4 text-gray-300 transition-all duration-300 hover:border-purple-500">
+              <User size={18} />
+              Profile
+            </button>
+          </div>
         </nav>
 
-        {/* MOBILE BUTTONS */}
-        <div className="mt-auto flex flex-col gap-4 p-6">
-          
-          <button className="rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100">
-            Login
-          </button>
-
-          <button className="rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-blue-700">
-            Sign Up
-          </button>
-
-          <button className="rounded-xl bg-gradient-to-r from-blue-600 to-emerald-500 px-5 py-3 text-sm font-semibold text-white shadow-xl">
-            List Property
-          </button>
-        </div>
-      </div>
+        {/* Bottom Glow */}
+        <div className="absolute bottom-0 left-0 h-40 w-full bg-gradient-to-t from-purple-700/20 to-transparent pointer-events-none" />
+      </aside>
     </>
-  )
+  );
 }
