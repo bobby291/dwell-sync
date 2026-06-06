@@ -164,50 +164,15 @@ export default function HeroSection() {
             className="relative flex items-center justify-center"
           >
             {/* Main Image Container */}
-            <div className="relative h-[620px] w-full overflow-hidden rounded-[50px] border border-purple-800/20">
+            <div className="relative h-[450px] w-full ">
               <Image
-                src="https://images.unsplash.com/photo-1460317442991-0ec209397118?q=80&w=2000&auto=format&fit=crop"
+                src="/images/DwellHero.png"
                 alt="Luxury Apartment"
                 fill
                 priority
                 className="object-cover"
               />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B16]/50 to-transparent" />
             </div>
-
-            {/* AI Assistant Card */}
-            <motion.div
-              animate={{
-                y: [0, -10, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-              }}
-              className="absolute bottom-10 right-0 w-[320px] rounded-3xl border border-purple-700/20 bg-[#161628]/95 p-5 backdrop-blur-xl"
-            >
-              <div className="flex gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r from-[#6C4AF2] to-[#8B7CFF]">
-                  <Sparkles className="h-7 w-7 text-white" />
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-white">
-                    Dwell AI Assistant
-                  </h3>
-
-                  <p className="mt-2 text-sm text-gray-400">
-                    Get smart recommendations and personalized help.
-                  </p>
-
-                  <button className="mt-3 flex items-center gap-2 text-sm font-medium text-[#8B7CFF]">
-                    Ask Dwell AI
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </div>

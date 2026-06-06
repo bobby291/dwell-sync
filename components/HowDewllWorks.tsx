@@ -2,7 +2,7 @@ import {
   Search,
   Sparkles,
   BadgeCheck,
-  Home,
+  Star,
   ArrowRight,
 } from 'lucide-react'
 
@@ -10,44 +10,44 @@ const steps = [
   {
     id: '1',
     title: 'Search',
-    description: 'Tell us what you need and where',
+    description: 'FInd what you need across category with the use of AI',
     icon: Search,
   },
 
   {
     id: '2',
     title: 'Discover',
-    description: 'Get AI-matched recommendations',
+    description: 'Discover options and prices and reviews that fit your prefrence.',
     icon: Sparkles,
   },
 
   {
     id: '3',
     title: 'Connect',
-    description: 'Chat with landlords or agents securely',
+    description: 'Connect and Network with Verified Providers and catch up easily',
     icon: BadgeCheck,
   },
 
   {
     id: '4',
-    title: 'Move In',
-    description: 'Book and move in with confidence',
-    icon: Home,
+    title: 'Experience',
+    description: 'Enjoy seemless service and support Dwell AI is made to make it easy and fast for',
+    icon: Star,
   },
 ]
 
 export default function HowDwellWorks() {
   return (
-    <section className="bg-white py-20">
+    <section className="bg-[#0B0B16] py-2">
       <div className="mx-auto max-w-7xl px-6">
         
         {/* HEADER */}
         <div className="text-center">
-          <h2 className="text-[42px] font-black tracking-tight text-slate-900">
+          <h2 className="text-[42px] font-black tracking-tight text-amber-300">
             How Dwell Sync Works
           </h2>
 
-          <p className="mt-3 text-lg text-slate-500">
+          <p className="mt-3 text-lg text-slate-100">
             Find your perfect home in 4 simple steps
           </p>
         </div>
@@ -80,11 +80,11 @@ export default function HowDwellWorks() {
 
                 {/* TEXT */}
                 <div className="mt-7">
-                  <h3 className="text-[28px] font-black tracking-tight text-slate-900">
+                  <h3 className="text-[28px] font-black tracking-tight text-gray-200">
                     {step.id}. {step.title}
                   </h3>
 
-                  <p className="mt-3 max-w-[220px] text-lg leading-8 text-slate-500">
+                  <p className="mt-3 max-w-[220px] text-lg leading-8 text-gray-100">
                     {step.description}
                   </p>
                 </div>

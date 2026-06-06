@@ -5,13 +5,12 @@ import Link from "next/link";
 import {
   FaFacebookF,
   FaTwitter,
-  FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-white border-t border-gray-100">
+    <footer className="w-full bg-[#0B0B16] border-t">
       <div className="max-w-7xl mx-auto px-6 md:px-10 pt-14 pb-8">
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
@@ -23,13 +22,14 @@ export default function Footer() {
                  
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-3">
-            <Image
-              src="/images/DwellSync.png"
-              alt="Dwell Sync Logo"
-              width={150}
-              height={150}
-              className="object-contain"
-            />
+           <Image
+            src="/images/Logo_Dwell.png"
+            alt="Dwell Sync Logo"
+            width={170}
+            height={170}
+            className="object-contain"
+            priority
+         />
 
             {/* <h1 className="hidden text-xl font-black tracking-tight sm:block">
               <span className="text-blue-700">Dwell</span>
@@ -40,9 +40,9 @@ export default function Footer() {
             </div>
 
             {/* Description */}
-            <p className="text-[18px] leading-[34px] text-gray-600 mt-5 max-w-[320px]">
-              AI-powered platform connecting students with trusted accommodation
-              across Nigeria.
+            <p className="text-[18px] leading-[34px] text-gray-100 mt-5 max-w-[320px]">
+              The all-in-one in astructure connecting accomodation,transportation, logistics,
+              business and services for better living.
             </p>
 
             {/* Social Icons */}
@@ -54,10 +54,6 @@ export default function Footer() {
                 },
                 {
                   icon: FaTwitter,
-                  href: "#",
-                },
-                {
-                  icon: FaInstagram,
                   href: "#",
                 },
                 {
@@ -94,24 +90,25 @@ export default function Footer() {
 
           {/* Platform */}
           <div>
-            <h3 className="text-[18px] font-semibold text-black mb-6">
-              Platform
+            <h3 className="text-[18px] font-semibold text-white mb-6">
+              Explore
             </h3>
 
             <div className="flex flex-col gap-4">
               {[
-                "Find Accommodation",
+                "Accommodation",
                 "Businesses",
-                "Explore Areas",
-                "AI Assistant",
-                "How It Works",
+                "Transportation",
+                "Logistics",
+                "Services",
+                "All Categories",
               ].map((item, index) => (
                 <Link
                   key={index}
                   href="#"
                   className="
                     text-[17px]
-                    text-gray-600
+                    text-gray-400
                     hover:text-black
                     transition-colors
                   "
@@ -124,7 +121,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-[18px] font-semibold text-black mb-6">
+            <h3 className="text-[18px] font-semibold text-white mb-6">
               Company
             </h3>
 
@@ -141,7 +138,7 @@ export default function Footer() {
                   href="#"
                   className="
                     text-[17px]
-                    text-gray-600
+                    text-gray-400
                     hover:text-black
                     transition-colors
                   "
@@ -154,7 +151,7 @@ export default function Footer() {
 
           {/* Support */}
           <div>
-            <h3 className="text-[18px] font-semibold text-black mb-6">
+            <h3 className="text-[18px] font-semibold text-white mb-6">
               Support
             </h3>
 
@@ -170,35 +167,7 @@ export default function Footer() {
                   href="#"
                   className="
                     text-[17px]
-                    text-gray-600
-                    hover:text-black
-                    transition-colors
-                  "
-                >
-                  {item}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Partners */}
-          <div>
-            <h3 className="text-[18px] font-semibold text-black mb-6">
-              For Partners
-            </h3>
-
-            <div className="flex flex-col gap-4">
-              {[
-                "List Property",
-                "Partner with Us",
-                "Agent Dashboard",
-              ].map((item, index) => (
-                <Link
-                  key={index}
-                  href="#"
-                  className="
-                    text-[17px]
-                    text-gray-600
+                    text-gray-500
                     hover:text-black
                     transition-colors
                   "

@@ -10,6 +10,7 @@ import {
   Building2,
   BriefcaseBusiness,
   Bus,
+  Badge,
   Truck,
   Users,
   ChevronLeft,
@@ -46,10 +47,15 @@ export default function Navbar() {
       icon: Truck,
     },
     {
+      name: "Accomodation",
+      href: "/accomodation",
+      icon: Badge,
+    },
+    /**  {
       name: "Community",
       href: "/community",
       icon: Users,
-    },
+    },*/
   ];
 
   return (
@@ -64,7 +70,7 @@ export default function Navbar() {
               className="flex items-center transition-transform duration-300 hover:scale-105"
             >
               <Image
-                src="/images/Logo (2).png"
+                src="/images/Logo_Dwell.png"
                 alt="Dwell Sync Logo"
                 width={170}
                 height={170}
@@ -104,9 +110,13 @@ export default function Navbar() {
                 />
               </button>
 
-              <button className="rounded-full bg-gradient-to-r from-[#6C4AF2] via-[#7B61FF] to-[#5A2DFF] px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-900/30 transition-all duration-300 hover:scale-105 hover:shadow-purple-700/40">
+              <a
+                href="https://whatsapp.com/C3bWzOTRklZCJmoeAxDhdg"
+                target="_bank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-gradient-to-r from-[#6C4AF2] via-[#7B61FF] to-[#5A2DFF] px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-900/30 transition-all duration-300 hover:scale-105 hover:shadow-purple-700/40">
                 Join Waitlist
-              </button>
+              </a>
 
               <button className="group flex h-11 w-11 items-center justify-center rounded-full border border-purple-700/30 bg-[#131325] transition-all duration-300 hover:border-purple-500 hover:bg-purple-500/10">
                 <User
@@ -146,7 +156,7 @@ export default function Navbar() {
         {/* Header */}
         <div className="flex items-center justify-between border-b border-purple-900/20 px-5 py-5">
           <Image
-            src="/images/Logo (2).png"
+            src="/images/Logo_Dwell.png"
             alt="Dwell Sync Logo"
             width={140}
             height={140}
@@ -194,9 +204,13 @@ export default function Navbar() {
 
           {/* Action Buttons */}
           <div className="space-y-4">
-            <button className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#6C4AF2] via-[#7B61FF] to-[#5A2DFF] px-5 py-4 font-semibold text-white shadow-lg shadow-purple-900/30 transition-all duration-300 hover:scale-[1.02]">
+            <a
+              href="https://whatsapp.com/C3bWzOTRklZCJmoeAxDhdg"
+              target="_bank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#6C4AF2] via-[#7B61FF] to-[#5A2DFF] px-5 py-4 font-semibold text-white shadow-lg shadow-purple-900/30 transition-all duration-300 hover:scale-[1.02]">
               Join Waitlist
-            </button>
+            </a>
 
             <button className="flex w-full items-center justify-center gap-2 rounded-2xl border border-purple-700/30 bg-[#17172B] px-5 py-4 text-gray-300 transition-all duration-300 hover:border-purple-500">
               <User size={18} />

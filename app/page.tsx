@@ -1,6 +1,6 @@
  import AIFeatureds from "@/components/AIFeatureds"
 import BrowseCategory from "@/components/BrowseCategory"
-import FeaturedListing from "@/components/FeaturedListing"
+import Explore from "@/components/Explore"
 import HeroSection from "@/components/HeroSection"
 import HomeDwellWorks from "@/components/HowDewllWorks"
 import Testimonies from "@/components/Testimonials"
@@ -10,11 +10,11 @@ export default function Home() {
     <main>
       <HeroSection />
       <TrustSection />
-      <FeaturedListing />
+      <Explore />
       <HomeDwellWorks />
-      <BrowseCategory />
-      <Testimonies />
       <AIFeatureds />
+      {/* <Testimonies */}
+      
       
     </main>
   )

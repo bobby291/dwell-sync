@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function AIFeatureds() {
   return (
-    <section className="w-full px-4 md:px-8 py-12 bg-white">
+    <section className="w-full px-4 md:px-8 py-12 bg-[#0B0B16]">
       <div className="max-w-7xl mx-auto">
         <div
           className="
@@ -31,11 +31,12 @@ export default function AIFeatureds() {
             {/* Left Text */}
             <div className="text-center lg:text-left">
               <h2 className="text-white text-[32px] md:text-[42px] font-bold leading-tight tracking-tight">
-                Ready to find your perfect home?
+                Everything You need
+                Right in Your Pocket
               </h2>
 
               <p className="text-white/90 text-[18px] md:text-[22px] mt-3 font-medium">
-                Join thousands of students already using Dwell Sync
+                Join thousands of users and sellers to shape the gap....
               </p>
             </div>
 
@@ -45,7 +46,7 @@ export default function AIFeatureds() {
               <button
                 className="
                   bg-white
-                  text-[#0B46D8]
+                  text-[#051130]
                   font-semibold
                   text-[18px]
                   px-10
