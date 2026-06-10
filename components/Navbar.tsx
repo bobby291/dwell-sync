@@ -27,7 +27,7 @@ icon: Home,
 },
 {
 name: "Businesses",
-href: "/businesses",
+href: "/business",
 icon: Building2,
 },
 {
