@@ -15,12 +15,12 @@ import {
 
 const floating = {
   animate: {
-    y: [0, -12, 0],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
+    y: [0, -12, 0] as number[],
+  },
+  transition: {
+    duration: 4,
+    repeat: Infinity,
+    ease: [0.42, 0, 0.58, 1] as const,
   },
 };
 
@@ -123,7 +123,8 @@ export default function Hero() {
 
             {/* CARD 1 */}
             <motion.div
-              {...floating}
+              animate={floating.animate}
+              transition={floating.transition}
               className="absolute top-0 left-0 w-[290px] rounded-[28px] bg-[#0B0B16] shadow-2xl p-4"
             >
               <div className="relative h-40 overflow-hidden rounded-2xl">

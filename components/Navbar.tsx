@@ -67,7 +67,7 @@ return (
              priority
            /> </Link>
 
-```
+
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 lg:flex">
           {navLinks.map((item, index) => (
