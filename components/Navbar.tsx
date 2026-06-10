@@ -32,7 +32,7 @@ icon: Building2,
 },
 {
 name: "Services",
-href: "/services",
+href: "/works",
 icon: BriefcaseBusiness,
 },
 {
