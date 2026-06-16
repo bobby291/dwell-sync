@@ -37,7 +37,7 @@ icon: BriefcaseBusiness,
 },
 {
 name: "Transport",
-href: "/transport",
+href: "/transportation",
 icon: Bus,
 },
 {
