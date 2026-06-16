@@ -83,7 +83,7 @@ const countries = [
 
 export default function OnboardingScreen() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#020B6B]">
+    <section className="relative min-h-screen overflow-hidden bg-[#0B0B16] ">
       {/* Glow Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#2563EB40,transparent_70%)]" />
 
