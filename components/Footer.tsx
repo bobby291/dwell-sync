@@ -105,7 +105,7 @@ export default function Footer() {
               ].map((item, index) => (
                 <Link
                   key={index}
-                  href="#"
+                  href="/home"
                   className="
                     text-[17px]
                     text-gray-400

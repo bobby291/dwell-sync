@@ -22,7 +22,7 @@ const [isOpen, setIsOpen] = useState(false);
 const navLinks = [
 {
 name: "Home",
-href: "/",
+href: "/home",
 icon: Home,
 },
 {
