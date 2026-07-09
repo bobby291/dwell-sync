@@ -4,78 +4,71 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Star,
+  ShieldCheck,
+  Truck,
   ArrowRight,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
 
-const products = [
+const businesses = [
   {
     name: "HP Pavilion 15 Laptop",
-    price: "₦750,000",
-    seller: "TechHub Electronics",
-    rating: "4.8",
-    reviews: "180",
+    category: "Tech Electronics • ₦750,000",
     image:
-      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1200&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1200&auto=format&fit=crop",
+    rating: "4.9",
+    reviews: "230",
+    badge: "Verified",
+    featured: true,
   },
   {
     name: "iPhone 14 Pro Max",
-    price: "₦1,280,000",
-    seller: "TechHub Electronics",
-    rating: "4.9",
-    reviews: "210",
+    category: "Gadgets • ₦1,280,000",
     image:
       "https://images.unsplash.com/photo-1678911820864-e4c7c4f8c6d5?q=80&w=1200&auto=format&fit=crop",
+    rating: "4.8",
+    reviews: "180",
+    badge: "Verified",
   },
   {
-    name: "Nike Air Jordan 1",
-    price: "₦120,000",
-    seller: "Urban Fashion Hub",
-    rating: "4.9",
-    reviews: "230",
+    name: "Nike Air Jordan",
+    category: "Essentials • ₦120,000",
     image:
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    name: "Elepaq Generator 3.5KV",
-    price: "₦320,000",
-    seller: "Prime Power Solutions",
+          "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop",
     rating: "4.7",
-    reviews: "95",
+    reviews: "98",
+    badge: "Fast Delivery",
+  },
+  {
+    name: "Elepaq Generator",
+    category: "Power Solution • ₦320,000",
     image:
-      "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1200&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1200&auto=format&fit=crop",
+    rating: "4.6",
+    reviews: "76",
+    badge: "Verified",
   },
   {
     name: "Dior Sauvage 100ml",
-    price: "₦95,000",
-    seller: "Glow Beauty Studio",
-    rating: "4.8",
+    category: "Beauty • ₦95,000",
+    image:
+      "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1200&auto=format&fit=crop",    rating: "4.9",
     reviews: "140",
-    image:
-      "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    name: "Ergonomic Office Chair",
-    price: "₦85,000",
-    seller: "Urban Furniture",
-    rating: "4.6",
-    reviews: "76",
-    image:
-      "https://images.unsplash.com/photo-1505843490701-5be5d1b54f84?q=80&w=1200&auto=format&fit=crop",
+    badge: "Verified",
   },
 ];
 
-export default function Products() {
+export default function Featured() {
   return (
-    <section className="relative bg-[#0B0B16] py-20 overflow-hidden">
+    <section className="relative py-20 bg-[#0B0B16]">
       <div className="container mx-auto px-6 lg:px-12">
 
         {/* HEADER */}
         <div className="mb-10 flex items-center justify-between">
           <motion.h2
             animate={{
-              y: [0, -3, 0],
+              y: [0, -4, 0],
             }}
             transition={{
               duration: 3,
@@ -83,10 +76,10 @@ export default function Products() {
             }}
             className="text-3xl font-bold text-amber-600"
           >
-            Trending Products
+            Trends Products
           </motion.h2>
 
-          <button className="hidden md:flex items-center gap-2 font-semibold text-violet-600 transition-all hover:gap-3">
+          <button className="hidden md:flex items-center gap-2 text-violet-600 font-semibold hover:gap-3 transition-all">
             View all products
             <ArrowRight className="h-4 w-4" />
           </button>
@@ -94,14 +87,15 @@ export default function Products() {
 
         <div className="relative">
 
-          {/* LEFT BUTTON */}
+          {/* LEFT NAV */}
           <button
             className="
-              hidden lg:flex
               absolute
-              left-[-30px]
+              -left-8
               top-1/2
               z-20
+              hidden
+              lg:flex
               h-12
               w-12
               -translate-y-1/2
@@ -109,22 +103,21 @@ export default function Products() {
               justify-center
               rounded-full
               bg-white
-              border
-              border-slate-100
-              shadow-xl
+              shadow-lg
             "
           >
             <ChevronLeft className="h-5 w-5 text-slate-600" />
           </button>
 
-          {/* RIGHT BUTTON */}
+          {/* RIGHT NAV */}
           <button
             className="
-              hidden lg:flex
               absolute
-              right-[-30px]
+              -right-8
               top-1/2
               z-20
+              hidden
+              lg:flex
               h-12
               w-12
               -translate-y-1/2
@@ -132,19 +125,19 @@ export default function Products() {
               justify-center
               rounded-full
               bg-white
+              shadow-lg
               border
               border-slate-100
-              shadow-xl
             "
           >
             <ChevronRight className="h-5 w-5 text-slate-600" />
           </button>
 
-          {/* PRODUCTS GRID */}
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-            {products.map((product, index) => (
+          {/* CARDS */}
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-5">
+            {businesses.map((business, index) => (
               <motion.div
-                key={product.name}
+                key={business.name}
                 initial={{
                   opacity: 0,
                   y: 40,
@@ -155,55 +148,42 @@ export default function Products() {
                 }}
                 viewport={{ once: true }}
                 transition={{
+                  delay: index * 0.1,
                   duration: 0.5,
-                  delay: index * 0.08,
                 }}
                 whileHover={{
-                  y: -12,
+                  y: -10,
+                }}
+                animate={{
+                  y: [0, -8, 0],
                 }}
                 className="
-                  group
+                  relative
+                  overflow-hidden
                   rounded-[24px]
                   bg-[#0B0B16]
-                  p-4
-                  shadow-[0_10px_40px_rgba(0,0,0,0.05)]
-                  transition-all
+                  shadow-[0_8px_30px_rgba(0,0,0,0.05)]
                 "
               >
                 {/* IMAGE */}
-                <motion.div
-                  animate={{
-                    y: [0, -8, 0],
-                  }}
-                  transition={{
-                    duration: 4 + index * 0.2,
-                    repeat: Infinity,
-                  }}
-                  className="
-                    relative
-                    mb-4
-                    h-[170px]
-                    overflow-hidden
-                    rounded-2xl
-                    bg-[#0B0B16]
-                  "
-                >
+                <div className="relative h-44 overflow-hidden">
                   <Image
-                    src={product.image}
-                    alt={product.name}
+                    src={business.image}
+                    alt={business.name}
                     fill
-                    className="
-                      object-contain
-                      p-4
-                      transition
-                      duration-700
-                      group-hover:scale-110
-                    "
+                    className="object-cover transition duration-700 hover:scale-110"
                   />
-                </motion.div>
 
-                {/* PRODUCT INFO */}
-                <div>
+                  {business.featured && (
+                    <div className="absolute left-3 top-3 rounded-full bg-violet-600 px-4 py-1 text-xs font-semibold text-white shadow-lg">
+                      Featured
+                    </div>
+                  )}
+                </div>
+
+                {/* CONTENT */}
+                <div className="p-5">
+
                   <motion.h3
                     animate={{
                       y: [0, -2, 0],
@@ -212,66 +192,76 @@ export default function Products() {
                       duration: 3,
                       repeat: Infinity,
                     }}
-                    className="
-                      line-clamp-2
-                      text-lg
-                      font-semibold
-                      text-slate-300
-                    "
+                    className="text-xl font-bold text-slate-300"
                   >
-                    {product.name}
+                    {business.name}
                   </motion.h3>
 
-                  <motion.p
-                    animate={{
-                      y: [0, -2, 0],
-                    }}
-                    transition={{
-                      duration: 3.5,
-                      repeat: Infinity,
-                    }}
-                    className="
-                      mt-2
-                      text-2xl
-                      font-bold
-                      text-slate-500
-                    "
-                  >
-                    {product.price}
-                  </motion.p>
-
                   <p className="mt-1 text-sm text-slate-300">
-                    {product.seller}
+                    {business.category}
                   </p>
 
                   {/* RATING */}
-                  <div className="mt-3 flex items-center gap-2">
-                    <Star
-                      className="
-                        h-4
-                        w-4
-                        fill-yellow-400
-                        text-yellow-400
-                      "
-                    />
+                  <div className="mt-5 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Star
+                        className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                      />
 
-                    <span className="font-medium text-slate-300">
-                      {product.rating}
-                    </span>
+                      <span className="font-semibold text-slate-300">
+                        {business.rating}
+                      </span>
 
-                    <span className="text-slate-300">
-                      ({product.reviews})
-                    </span>
+                      <span className="text-slate-400">
+                        ({business.reviews})
+                      </span>
+                    </div>
+
+                    {business.badge === "Verified" ? (
+                      <div className="flex items-center gap-1 rounded-full bg-green-50 px-3 py-1 text-xs font-medium text-green-700">
+                        <ShieldCheck className="h-3 w-3" />
+                        Verified
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700">
+                        <Truck className="h-3 w-3" />
+                        Fast Delivery
+                      </div>
+                    )}
                   </div>
+
+                  {/* BUTTON */}
+                  <button
+                    className="
+                      mt-6
+                      flex
+                      w-full
+                      items-center
+                      justify-center
+                      gap-2
+                      rounded-xl
+                      border
+                      border-slate-200
+                      py-3
+                      font-semibold
+                      text-violet-600
+                      transition-all
+                      hover:bg-violet-50
+                      hover:gap-3
+                    "
+                  >
+                    Buy Now
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* MOBILE LINK */}
+          {/* MOBILE BUTTON */}
           <div className="mt-8 flex justify-center md:hidden">
-            <button className="flex items-center gap-2 font-semibold text-violet-600">
-              View all products
+            <button className="flex items-center gap-2 text-violet-600 font-semibold">
+              View all businesses
               <ArrowRight className="h-4 w-4" />
             </button>
           </div>

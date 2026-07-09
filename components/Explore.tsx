@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   Home,
   Car,
@@ -19,6 +20,7 @@ const categories = [
     icon: Home,
     iconBg: "bg-violet-100",
     iconColor: "text-violet-600",
+    herf: "/accomodation"
   },
   {
     title: "Transportation",
@@ -28,6 +30,7 @@ const categories = [
     icon: Car,
     iconBg: "bg-blue-100",
     iconColor: "text-blue-600",
+     herf: "/transportation"
   },
   {
     title: "Logistics",
@@ -37,6 +40,7 @@ const categories = [
     icon: Truck,
     iconBg: "bg-orange-100",
     iconColor: "text-orange-500",
+     herf: "/logistics"
   },
   {
     title: "Businesses",
@@ -46,6 +50,7 @@ const categories = [
     icon: Store,
     iconBg: "bg-emerald-100",
     iconColor: "text-emerald-600",
+     herf: "/business"
   },
   {
     title: "Services",
@@ -55,6 +60,7 @@ const categories = [
     icon: Wrench,
     iconBg: "bg-amber-100",
     iconColor: "text-amber-500",
+     herf: "/works"
   },
 ];
 
@@ -118,10 +124,10 @@ export default function Explore() {
                     {item.description}
                   </p>
 
-                  <button className="inline-flex items-center gap-2 font-semibold text-indigo-600 transition hover:gap-3">
+                  <Link href={item.herf}  className="inline-flex items-center gap-2 font-semibold text-indigo-600 transition hover:gap-3">
                     Explore
                     <ArrowRight className="h-4 w-4" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             );

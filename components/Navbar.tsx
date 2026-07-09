@@ -56,7 +56,7 @@ return (
 <>
 {/* Desktop Navbar */} <header className="sticky top-0 z-50 w-full border-b border-purple-900/20 bg-[#0B0B16]/95 backdrop-blur-xl"> <div className="mx-auto max-w-7xl px-5 lg:px-10"> <div className="flex h-20 items-center justify-between">
 {/* Logo */} <Link
-           href="/"
+           href="/home"
            className="flex items-center transition-transform duration-300 hover:scale-105"
          > <Image
              src="/images/Logo_Dwell.png"
