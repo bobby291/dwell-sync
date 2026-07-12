@@ -118,7 +118,7 @@ export default function Available() {
     <section className="py-14 bg-[#0B0B16] ">
       <div className="container mx-auto px-6">
 
-        <div className="grid xl:grid-cols-[1.8fr_1fr] gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-[1.8fr_1fr] gap-6">
 
           {/* SERVICES PANEL */}
 
@@ -141,7 +141,16 @@ export default function Available() {
 
             {/* TABS */}
 
-            <div className="flex flex-wrap gap-2 mb-6">
+            <div
+              className="
+              flex
+              gap-2
+              overflow-x-auto
+              no-scrollbar
+              pb-2
+              mb-6
+              "
+            >
               {tabs.map((tab, index) => (
                 <button
                   key={tab}
@@ -175,17 +184,31 @@ export default function Available() {
                     y: -6,
                   }}
                   className="
-                    rounded-2xl
-                    border
-                    border-slate-200
-                    p-3
-                    flex
-                    items-center
-                    gap-4
-                    bg-white
+                  rounded-2xl
+                  border
+                  border-slate-200
+                  p-4
+                  bg-white
+                  flex
+                  flex-col
+                  sm:flex-row
+                  gap-4
+                  items-start
+                  sm:items-center
                   "
                 >
-                  <div className="relative h-16 w-20 rounded-xl overflow-hidden shrink-0">
+                  <div
+                    className="
+                    relative
+                    w-full
+                    h-44
+                    sm:h-20
+                    sm:w-24
+                    rounded-xl
+                    overflow-hidden
+                    shrink-0
+                    "
+                  >
                     <Image
                       src={service.image}
                       alt={service.company}
@@ -194,13 +217,24 @@ export default function Available() {
                     />
                   </div>
 
-                  <div className="flex-1 grid grid-cols-5 items-center gap-4">
+                  <div
+                    className="
+                    flex-1
+                    grid
+                    grid-cols-1
+                    sm:grid-cols-2
+                    lg:grid-cols-5
+                    gap-3
+                    items-start
+                    lg:items-center
+                    "
+                  >
 
                     <div>
-                      <h4 className="font-bold text-slate-900">
+                      <h4 className="font-semibold text-base sm:text-lg text-slate-900">
                         {service.company}
                       </h4>
-                      <p className="text-sm text-slate-500">
+                      <p className="text-xs sm:text-sm text-slate-500">
                         {service.type}
                       </p>
                     </div>
@@ -229,16 +263,21 @@ export default function Available() {
                   </div>
 
                   <button
+                
                     className="
-                      h-11
-                      px-5
-                      rounded-xl
-                      bg-gradient-to-r
-                      from-purple-700
-                      to-violet-500
-                      text-white
-                      font-medium
-                      whitespace-nowrap
+                    w-full
+                    sm:w-auto
+                    h-11
+                    px-5
+                    rounded-xl
+                    bg-gradient-to-r
+                    from-purple-700
+                    to-violet-500
+                    text-white
+                    font-medium
+                    whitespace-nowrap
+                    transition
+                    hover:scale-[1.02]
                     "
                   >
                     {service.button}
