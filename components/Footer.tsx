@@ -97,11 +97,12 @@ export default function Footer() {
             <div className="flex flex-col gap-4">
               {[
                 "Accommodation",
-                "Businesses",
-                "Transportation",
-                "Logistics",
+                "E-book",
+                "Electronics",
+                "Real Estate",
+                "Artisian",
+                "Shopping",
                 "Services",
-                "All Categories",
               ].map((item, index) => (
                 <Link
                   key={index}
