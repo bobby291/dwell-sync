@@ -154,7 +154,7 @@ export default function OnboardingScreen() {
         </h1>
 
         <h2 className="max-w-4xl text-3xl font-bold text-white">
-          Africa's Connected Commerce
+          African's Connected Commerce
         </h2>
 
         <h2 className="mb-6 text-3xl font-bold text-amber-400">
@@ -207,7 +207,13 @@ export default function OnboardingScreen() {
           className="relative my-14 h-64 w-64 rounded-full border border-blue-400/30"
         >
           <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-4xl font-bold text-white shadow-[0_0_50px_#2563EB]">
-            D
+            <Image
+            src="/dwell-logo.png"
+            alt="DwellSync"
+            width={180}
+            height={180}
+            priority
+          />
           </div>
         </motion.div>
 
@@ -257,7 +263,7 @@ export default function OnboardingScreen() {
 
         {/* Footer Text */}
         <div className="mt-12 text-center">
-          <p className="text-2xl font-semibold text-amber-400">
+          <p className="text-xl font-medium text-amber-400">
             Built For Africa. Powered By AI.
             Driven By Community.
           </p>

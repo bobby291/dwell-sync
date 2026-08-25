@@ -187,26 +187,34 @@ export default function Available() {
                   rounded-2xl
                   border
                   border-slate-200
-                  p-4
                   bg-white
+                  px-4
+                  py-3
                   flex
                   flex-col
-                  sm:flex-row
+                  lg:flex-row
                   gap-4
                   items-start
-                  sm:items-center
+                  lg:items-center
+                  justify-between
+                  transition-all
+                  hover:shadow-md
                   "
                 >
                   <div
                     className="
-                    relative
-                    w-full
-                    h-44
-                    sm:h-20
-                    sm:w-24
-                    rounded-xl
-                    overflow-hidden
-                    shrink-0
+                      relative
+                      w-full
+                      h-44
+                      sm:w-20
+                      sm:h-16
+                      lg:w-16
+                      lg:h-16
+                      xl:w-16
+                      xl:h-16
+                      rounded-lg
+                      overflow-hidden
+                      shrink-0 
                     "
                   >
                     <Image
@@ -223,10 +231,11 @@ export default function Available() {
                     grid
                     grid-cols-1
                     sm:grid-cols-2
-                    lg:grid-cols-5
-                    gap-3
-                    items-start
-                    lg:items-center
+                    md:grid-cols-2
+                    lg:grid-cols-[2fr_1fr_1fr_1fr_1.3fr]
+                    items-center
+                    gap-x-6
+                    gap-y-2
                     "
                   >
 
