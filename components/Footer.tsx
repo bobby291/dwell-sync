@@ -9,181 +9,171 @@ import {
 } from "react-icons/fa";
 
 export default function Footer() {
-  return (
-    <footer className="w-full bg-[#0B0B16] border-t">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 pt-14 pb-8">
-        {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
-          {/* Brand Section */}
-          <div className="md:col-span-1">
-            {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="relative">
-                 
-          {/* LOGO */}
-          <Link href="/" className="flex items-center gap-3">
-           <Image
-            src="/images/Logo_Dwell.png"
-            alt="Dwell Sync Logo"
-            width={170}
-            height={170}
-            className="object-contain"
-            priority
-         />
+  const exploreLinks = [
+    { name: "Accommodation", href: "/accomodation" },
+    { name: "Businesses", href: "/business" },
+    { name: "Services", href: "/works" },
+    { name: "E-book", href: "/ebook" },
+    { name: "Electronics", href: "/electronics" },
+    { name: "Real Estate", href: "/real-estate" },
+    { name: "Artisans", href: "/artisans" },
+    { name: "Shopping", href: "/shop" },
+  ];
 
-            {/* <h1 className="hidden text-xl font-black tracking-tight sm:block">
-              <span className="text-blue-700">Dwell</span>
-              <span className="text-emerald-500">Sync</span>
-            </h1> */}
-          </Link>
-              </div>
-            </div>
+  const companyLinks = [
+    { name: "About Us", href: "/about" },
+    { name: "Stories", href: "/stories" },
+    { name: "Careers", href: "/careers" },
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms of Service", href: "/terms" },
+  ];
+
+  const supportLinks = [
+    { name: "Help Center", href: "/help" },
+    { name: "Contact Us", href: "/contact" },
+    { name: "Safety Tips", href: "/safety" },
+    { name: "Report a Problem", href: "/report" },
+  ];
+
+  const socialLinks = [
+    {
+      icon: FaFacebookF,
+      href: "#",
+      label: "Facebook",
+    },
+    {
+      icon: FaTwitter,
+      href: "#",
+      label: "Twitter",
+    },
+    {
+      icon: FaLinkedinIn,
+      href: "#",
+      label: "LinkedIn",
+    },
+  ];
+
+  return (
+    <footer className="w-full border-t border-purple-900/20 bg-[#0B0B16]">
+      <div className="mx-auto max-w-7xl px-6 py-14 md:px-10 lg:py-16">
+        {/* ================= MAIN FOOTER ================= */}
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5 lg:gap-10">
+          
+          {/* ================= BRAND ================= */}
+          <div className="lg:col-span-2">
+            {/* Logo */}
+            <Link
+              href="/home"
+              className="inline-flex items-center transition-transform duration-300 hover:scale-[1.02]"
+            >
+              <Image
+                src="/images/Logo_Dwell.png"
+                alt="Dwell Sync Logo"
+                width={170}
+                height={170}
+                className="h-auto w-[150px] object-contain"
+                priority
+              />
+            </Link>
 
             {/* Description */}
-            <p className="text-[18px] leading-[34px] text-gray-100 mt-5 max-w-[320px]">
-              The all-in-one in astructure connecting accomodation,transportation, logistics,
-              business and services for better living.
+            <p className="mt-5 max-w-md text-base leading-7 text-gray-400 md:text-[17px]">
+              DwellSync is an all-in-one platform connecting accommodation,
+              businesses, and trusted services to make everyday living
+              simpler, smarter, and more connected.
             </p>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-5 mt-7">
-              {[
-                {
-                  icon: FaFacebookF,
-                  href: "#",
-                },
-                {
-                  icon: FaTwitter,
-                  href: "#",
-                },
-                {
-                  icon: FaLinkedinIn,
-                  href: "#",
-                },
-              ].map((item, index) => {
+            <div className="mt-7 flex items-center gap-3">
+              {socialLinks.map((item) => {
                 const Icon = item.icon;
 
                 return (
                   <Link
-                    key={index}
+                    key={item.label}
                     href={item.href}
-                    className="
-                      w-11
-                      h-11
-                      rounded-full
-                      border
-                      border-gray-200
-                      flex
-                      items-center
-                      justify-center
-                      text-gray-600
-                      hover:bg-gray-100
-                      transition-all
-                    "
+                    aria-label={item.label}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-purple-800/30 bg-[#131325] text-gray-400 transition-all duration-300 hover:border-purple-500/50 hover:bg-purple-600/10 hover:text-[#8B7CFF]"
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="h-4 w-4" />
                   </Link>
                 );
               })}
             </div>
           </div>
 
-          {/* Platform */}
+          {/* ================= EXPLORE ================= */}
           <div>
-            <h3 className="text-[18px] font-semibold text-white mb-6">
+            <h3 className="mb-5 text-base font-semibold text-white">
               Explore
             </h3>
 
-            <div className="flex flex-col gap-4">
-              {[
-                "Accommodation",
-                "E-book",
-                "Electronics",
-                "Real Estate",
-                "Artisian",
-                "Shopping",
-                "Services",
-              ].map((item, index) => (
+            <div className="flex flex-col gap-3">
+              {exploreLinks.map((item) => (
                 <Link
-                  key={index}
-                  href="/home"
-                  className="
-                    text-[17px]
-                    text-gray-400
-                    hover:text-black
-                    transition-colors
-                  "
+                  key={item.name}
+                  href={item.href}
+                  className="w-fit text-sm text-gray-400 transition-colors duration-300 hover:text-[#8B7CFF]"
                 >
-                  {item}
+                  {item.name}
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Company */}
+          {/* ================= COMPANY ================= */}
           <div>
-            <h3 className="text-[18px] font-semibold text-white mb-6">
+            <h3 className="mb-5 text-base font-semibold text-white">
               Company
             </h3>
 
-            <div className="flex flex-col gap-4">
-              {[
-                "About Us",
-                "Blog",
-                "Careers",
-                "Privacy Policy",
-                "Terms of Service",
-              ].map((item, index) => (
+            <div className="flex flex-col gap-3">
+              {companyLinks.map((item) => (
                 <Link
-                  key={index}
-                  href="#"
-                  className="
-                    text-[17px]
-                    text-gray-400
-                    hover:text-black
-                    transition-colors
-                  "
+                  key={item.name}
+                  href={item.href}
+                  className="w-fit text-sm text-gray-400 transition-colors duration-300 hover:text-[#8B7CFF]"
                 >
-                  {item}
+                  {item.name}
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Support */}
+          {/* ================= SUPPORT ================= */}
           <div>
-            <h3 className="text-[18px] font-semibold text-white mb-6">
+            <h3 className="mb-5 text-base font-semibold text-white">
               Support
             </h3>
 
-            <div className="flex flex-col gap-4">
-              {[
-                "Help Center",
-                "Contact Us",
-                "Safety Tips",
-                "Report a Problem",
-              ].map((item, index) => (
+            <div className="flex flex-col gap-3">
+              {supportLinks.map((item) => (
                 <Link
-                  key={index}
-                  href="#"
-                  className="
-                    text-[17px]
-                    text-gray-500
-                    hover:text-black
-                    transition-colors
-                  "
+                  key={item.name}
+                  href={item.href}
+                  className="w-fit text-sm text-gray-400 transition-colors duration-300 hover:text-[#8B7CFF]"
                 >
-                  {item}
+                  {item.name}
                 </Link>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-200 mt-12 pt-6">
-          <p className="text-center text-[16px] text-gray-500">
-            © 2026 Powered ZieTech Developments Group. All rights reserved.
+        {/* ================= DIVIDER ================= */}
+        <div className="my-10 h-px w-full bg-purple-900/20" />
+
+        {/* ================= BOTTOM BAR ================= */}
+        <div className="flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
+          <p className="text-sm text-gray-500">
+            © 2026 DwellSync. All rights reserved.
+          </p>
+
+          <p className="text-sm text-gray-500">
+            Powered by{" "}
+            <span className="font-medium text-gray-300">
+              ZieTech Developments Group
+            </span>
           </p>
         </div>
       </div>

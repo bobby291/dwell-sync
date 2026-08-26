@@ -20,8 +20,10 @@ const categories = [
     icon: Home,
     iconBg: "bg-violet-100",
     iconColor: "text-violet-600",
-    herf: "/accomodation"
+    herf: "/accomodation",
   },
+
+  /*
   {
     title: "Transportation",
     description: "Book buses, flights and local rides.",
@@ -30,8 +32,9 @@ const categories = [
     icon: Car,
     iconBg: "bg-blue-100",
     iconColor: "text-blue-600",
-     herf: "/transportation"
+    herf: "/transportation",
   },
+
   {
     title: "Logistics",
     description: "Fast and reliable delivery services.",
@@ -40,8 +43,10 @@ const categories = [
     icon: Truck,
     iconBg: "bg-orange-100",
     iconColor: "text-orange-500",
-     herf: "/logistics"
+    herf: "/logistics",
   },
+  */
+
   {
     title: "Businesses",
     description: "Discover and shop from trusted businesses.",
@@ -50,8 +55,9 @@ const categories = [
     icon: Store,
     iconBg: "bg-emerald-100",
     iconColor: "text-emerald-600",
-     herf: "/business"
+    herf: "/business",
   },
+
   {
     title: "Services",
     description: "Book trusted professionals for any service.",
@@ -60,7 +66,7 @@ const categories = [
     icon: Wrench,
     iconBg: "bg-amber-100",
     iconColor: "text-amber-500",
-     herf: "/works"
+    herf: "/works",
   },
 ];
 
@@ -68,6 +74,7 @@ export default function Explore() {
   return (
     <section className="bg-[#0B0B16] py-20">
       <div className="mx-auto max-w-7xl px-6">
+
         {/* Header */}
         <div className="mx-auto mb-14 max-w-3xl text-center">
           <h2 className="text-4xl font-bold tracking-tight text-amber-300 md:text-5xl">
@@ -80,19 +87,19 @@ export default function Explore() {
 
           <p className="mt-4 text-lg leading-relaxed text-gray-200">
             Discover top-rated options across accommodation,
-            transportation, logistics, businesses and services near you.
+            businesses and services near you.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid justify-center gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((item) => {
             const Icon = item.icon;
 
             return (
               <div
                 key={item.title}
-                className="group overflow-hidden rounded-3xl  border-gray-100 bg-[#0B0B16] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="group overflow-hidden rounded-3xl bg-[#0B0B16] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 {/* Image */}
                 <div className="relative h-48 w-full overflow-hidden">
@@ -107,24 +114,31 @@ export default function Explore() {
 
                 {/* Content */}
                 <div className="relative px-6 pb-6 pt-10">
+
                   {/* Floating Icon */}
                   <div
-                    className={`absolute -top-8 left-6 flex h-16 w-16 items-center justify-center rounded-full border-8 border-white ${item.iconBg}`}
+                    className={`absolute -top-8 left-6 flex h-16 w-16 items-center justify-center rounded-full border-8 border-[#0B0B16] ${item.iconBg}`}
                   >
                     <Icon
                       className={`h-7 w-7 ${item.iconColor}`}
                     />
                   </div>
 
+                  {/* Title */}
                   <h3 className="mb-3 text-2xl font-semibold text-gray-200">
                     {item.title}
                   </h3>
 
+                  {/* Description */}
                   <p className="mb-6 text-base leading-7 text-gray-100">
                     {item.description}
                   </p>
 
-                  <Link href={item.herf}  className="inline-flex items-center gap-2 font-semibold text-indigo-600 transition hover:gap-3">
+                  {/* Explore Link */}
+                  <Link
+                    href={item.herf}
+                    className="inline-flex items-center gap-2 font-semibold text-indigo-600 transition-all hover:gap-3"
+                  >
                     Explore
                     <ArrowRight className="h-4 w-4" />
                   </Link>
