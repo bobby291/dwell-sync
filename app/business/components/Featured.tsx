@@ -2,13 +2,12 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link"
 import {
   Star,
   ShieldCheck,
   Truck,
   ArrowRight,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 
 const businesses = [
@@ -58,6 +57,9 @@ const businesses = [
     reviews: "140",
     badge: "Verified",
   },
+  
+  
+  
 ];
 
 export default function Featured() {
@@ -80,59 +82,14 @@ export default function Featured() {
             Featured Businesses
           </motion.h2>
 
-          <button className="hidden md:flex items-center gap-2 text-violet-600 font-semibold hover:gap-3 transition-all">
+          <Link href="/business/all-businesses" className="hidden md:flex items-center gap-2 text-violet-600 font-semibold hover:gap-3 transition-all">
             View all businesses
             <ArrowRight className="h-4 w-4" />
-          </button>
+          </Link>
         </div>
 
         <div className="relative">
 
-          {/* LEFT NAV */}
-          <button
-            className="
-              absolute
-              -left-8
-              top-1/2
-              z-20
-              hidden
-              lg:flex
-              h-12
-              w-12
-              -translate-y-1/2
-              items-center
-              justify-center
-              rounded-full
-              bg-white
-              shadow-lg
-            "
-          >
-            <ChevronLeft className="h-5 w-5 text-slate-600" />
-          </button>
-
-          {/* RIGHT NAV */}
-          <button
-            className="
-              absolute
-              -right-8
-              top-1/2
-              z-20
-              hidden
-              lg:flex
-              h-12
-              w-12
-              -translate-y-1/2
-              items-center
-              justify-center
-              rounded-full
-              bg-white
-              shadow-lg
-              border
-              border-slate-100
-            "
-          >
-            <ChevronRight className="h-5 w-5 text-slate-600" />
-          </button>
 
           {/* CARDS */}
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-5">
@@ -261,10 +218,10 @@ export default function Featured() {
 
           {/* MOBILE BUTTON */}
           <div className="mt-8 flex justify-center md:hidden">
-            <button className="flex items-center gap-2 text-violet-600 font-semibold">
+            <Link href="/business/all-businesses" className="flex items-center gap-2 text-violet-600 font-semibold">
               View all businesses
               <ArrowRight className="h-4 w-4" />
-            </button>
+            </Link>
           </div>
 
         </div>

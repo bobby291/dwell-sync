@@ -107,7 +107,7 @@ export default function Navbar() {
                       : "invisible -translate-y-2 opacity-0"
                   }`}
                 >
-                  <div className="overflow-hidden rounded-2xl border border-purple-800/30 bg-[#111122] p-2 shadow-2xl shadow-black/40">
+                  <div className="overflow-hidden rounded-2xl border border-purple-800/30 bg-[#111122] p-2 ">
                     {productLinks.map((item) => {
                       const Icon = item.icon;
 
