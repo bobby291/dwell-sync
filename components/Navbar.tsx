@@ -387,14 +387,14 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-11 w-full items-center justify-center rounded-lg bg-gradient-to-r from-[#6C4AF2] via-[#7B61FF] to-[#5A2DFF] text-sm font-semibold text-white shadow-lg shadow-purple-900/30 transition-all duration-200 hover:scale-[1.01]"
-            >
+            >zzzzzzzzz 
               Join Waitlist
             </a>
           </div>
         </nav>
 
         {/* Bottom Glow */}
-        <div className="pointer-events-none absolute bottom-0 left-0 h-24 w-full bg-gradient-to-t from-purple-700/20 to-transparent" />
+        <div className="pointer-events- none absolute bottom-0 left-0 h-24 w-full bg-gradient-to-t from-purple-700/20 to-transparent" />
       </aside>
     </>
   );
