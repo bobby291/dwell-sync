@@ -10,6 +10,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
+import Link from "next/link";
 
 const businesses = [
   {
@@ -79,10 +80,10 @@ export default function Featured() {
             Trends Products
           </motion.h2>
 
-          <button className="hidden md:flex items-center gap-2 text-violet-600 font-semibold hover:gap-3 transition-all">
+          <Link href="/business/view-store" className="hidden md:flex items-center gap-2 text-violet-600 font-semibold hover:gap-3 transition-all">
             View all products
             <ArrowRight className="h-4 w-4" />
-          </button>
+          </Link>
         </div>
 
         <div className="relative">

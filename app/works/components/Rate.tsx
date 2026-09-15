@@ -84,7 +84,7 @@ export default function Rate() {
           </h2>
 
           <Link
-            href="/service/providers"
+            href="/works/view-providers"
             className="group flex items-center gap-2 font-semibold text-[#6D4AFF]"
           >
             View all near you
