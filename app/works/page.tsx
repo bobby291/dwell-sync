@@ -11,7 +11,7 @@ export default function works() {
             <Hero />
             <Badges />
             <FeatureServices />
-            <PopularServices />
+            {/** <PopularServices /> */}
             <Rate />
             <HowitWork />
         

@@ -7,6 +7,7 @@ import {
   ChevronRight,
   Star,
 } from "lucide-react";
+import Link from "next/link";
 
 const providers = [
   {
@@ -73,17 +74,17 @@ export default function FeatureServices() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="mb-10 flex items-center justify-between">
-          <h2 className="animate-fadeUp text-3xl font-bold text-white">
-            Featured Service Providers
+          <h2 className="animate-fadeUp text-3xl font-bold text-amber-600">
+            Service Available
           </h2>
 
-          <button className="group flex items-center gap-2 font-semibold text-[#6D4AFF]">
+          <Link href="/works/providers" className="group flex items-center gap-2 font-semibold text-[#6D4AFF]">
             View all providers
             <ArrowRight
               size={18}
               className="transition-transform group-hover:translate-x-1"
             />
-          </button>
+          </Link>
         </div>
 
         {/* Navigation Arrows */}
