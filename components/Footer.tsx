@@ -7,17 +7,18 @@ import {
   FaTwitter,
   FaLinkedinIn,
 } from "react-icons/fa";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   const exploreLinks = [
     { name: "Accommodation", href: "/accomodation" },
     { name: "Businesses", href: "/business" },
     { name: "Services", href: "/works" },
-    { name: "E-book", href: "/ebook" },
-    { name: "Electronics", href: "/electronics" },
     { name: "Real Estate", href: "/real-estate" },
-    { name: "Artisans", href: "/artisans" },
     { name: "Shopping", href: "/shop" },
+    { name: "Electronics", href: "/electronics" },
+    { name: "Artisans", href: "/artisans" },
+    { name: "E-book", href: "/ebook" },
   ];
 
   const companyLinks = [
@@ -56,19 +57,19 @@ export default function Footer() {
   return (
     <footer className="w-full border-t border-purple-900/20 bg-[#0B0B16]">
       <div className="mx-auto max-w-7xl px-6 py-14 md:px-10 lg:py-16">
+
         {/* ================= MAIN FOOTER ================= */}
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5 lg:gap-10">
-          
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-6 lg:gap-8">
+
           {/* ================= BRAND ================= */}
           <div className="lg:col-span-2">
-            {/* Logo */}
             <Link
               href="/home"
               className="inline-flex items-center transition-transform duration-300 hover:scale-[1.02]"
             >
               <Image
                 src="/images/Logo_Dwell.png"
-                alt="Dwell Sync Logo"
+                alt="DwellSync Logo"
                 width={170}
                 height={170}
                 className="h-auto w-[150px] object-contain"
@@ -76,7 +77,6 @@ export default function Footer() {
               />
             </Link>
 
-            {/* Description */}
             <p className="mt-5 max-w-md text-base leading-7 text-gray-400 md:text-[17px]">
               DwellSync is an all-in-one platform connecting accommodation,
               businesses, and trusted services to make everyday living
@@ -156,6 +156,43 @@ export default function Footer() {
                   {item.name}
                 </Link>
               ))}
+            </div>
+          </div>
+
+          {/* ================= CONTACT ================= */}
+          <div>
+            <h3 className="mb-5 text-base font-semibold text-white">
+              Contact
+            </h3>
+
+            <div className="flex flex-col gap-4">
+
+              {/* Email */}
+              <a
+                href="mailto:dwellafrica@outlook.com"
+                className="group flex items-start gap-3 text-sm text-gray-400 transition-colors duration-300 hover:text-[#8B7CFF]"
+              >
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-[#8B7CFF]" />
+                <span className="break-all">
+                  dwellafrica@outlook.com
+                </span>
+              </a>
+
+              {/* Phone */}
+              <a
+                href="tel:08163586476"
+                className="group flex items-center gap-3 text-sm text-gray-400 transition-colors duration-300 hover:text-[#8B7CFF]"
+              >
+                <Phone className="h-4 w-4 shrink-0 text-[#8B7CFF]" />
+                <span>08163586476</span>
+              </a>
+
+              {/* Location */}
+              <div className="flex items-start gap-3 text-sm text-gray-400">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#8B7CFF]" />
+                <span>Remote | Onsite [Abuja]</span>
+              </div>
+
             </div>
           </div>
         </div>
