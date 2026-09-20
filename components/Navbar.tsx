@@ -32,15 +32,10 @@ export default function Navbar() {
       icon: BriefcaseBusiness,
     },
     {
-      name: "Stay",
+      name: "Accomodation",
       href: "/accomodaation",
       icon: Badge,
-    },
-    {
-      name: "Shop",
-      href: "/shop",
-      icon: ShoppingBag,
-    },
+    }
   ];
 
   return (
@@ -137,7 +132,7 @@ export default function Navbar() {
                 href="/stories"
                 className="text-sm font-medium text-gray-300 transition-all duration-300 hover:text-[#7B61FF]"
               >
-                Stories
+                Explore 
               </Link>
 
               {/* Browse */}
