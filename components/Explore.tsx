@@ -14,16 +14,15 @@ import {
 const categories = [
   {
     title: "Accommodation",
-    description: "Find verified apartments, houses etc..",
+    description: "Find verified apartments, houses, shortlets and more.",
     image:
       "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
     icon: Home,
     iconBg: "bg-violet-100",
     iconColor: "text-violet-600",
-    herf: "/accomodation",
+    href: "/accomodation",
   },
 
-  /*
   {
     title: "Transportation",
     description: "Book buses, flights and local rides.",
@@ -32,7 +31,7 @@ const categories = [
     icon: Car,
     iconBg: "bg-blue-100",
     iconColor: "text-blue-600",
-    herf: "/transportation",
+    href: "/transportation",
   },
 
   {
@@ -43,9 +42,8 @@ const categories = [
     icon: Truck,
     iconBg: "bg-orange-100",
     iconColor: "text-orange-500",
-    herf: "/logistics",
+    href: "/logistics",
   },
-  */
 
   {
     title: "Businesses",
@@ -55,7 +53,7 @@ const categories = [
     icon: Store,
     iconBg: "bg-emerald-100",
     iconColor: "text-emerald-600",
-    herf: "/business",
+    href: "/business",
   },
 
   {
@@ -66,7 +64,7 @@ const categories = [
     icon: Wrench,
     iconBg: "bg-amber-100",
     iconColor: "text-amber-500",
-    herf: "/works",
+    href: "/works",
   },
 ];
 
@@ -74,7 +72,6 @@ export default function Explore() {
   return (
     <section className="bg-[#0B0B16] py-20">
       <div className="mx-auto max-w-7xl px-6">
-
         {/* Header */}
         <div className="mx-auto mb-14 max-w-3xl text-center">
           <h2 className="text-4xl font-bold tracking-tight text-amber-300 md:text-5xl">
@@ -87,19 +84,19 @@ export default function Explore() {
 
           <p className="mt-4 text-lg leading-relaxed text-gray-200">
             Discover top-rated options across accommodation,
-            businesses and services near you.
+            transportation, logistics, businesses and services near you.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid justify-center gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-wrap justify-center gap-8">
           {categories.map((item) => {
             const Icon = item.icon;
 
             return (
               <div
                 key={item.title}
-                className="group overflow-hidden rounded-3xl bg-[#0B0B16] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="group w-full max-w-[220px] overflow-hidden rounded-3xl bg-[#0B0B16] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 {/* Image */}
                 <div className="relative h-48 w-full overflow-hidden">
@@ -114,7 +111,6 @@ export default function Explore() {
 
                 {/* Content */}
                 <div className="relative px-6 pb-6 pt-10">
-
                   {/* Floating Icon */}
                   <div
                     className={`absolute -top-8 left-6 flex h-16 w-16 items-center justify-center rounded-full border-8 border-[#0B0B16] ${item.iconBg}`}
@@ -136,7 +132,7 @@ export default function Explore() {
 
                   {/* Explore Link */}
                   <Link
-                    href={item.herf}
+                    href={item.href}
                     className="inline-flex items-center gap-2 font-semibold text-indigo-600 transition-all hover:gap-3"
                   >
                     Explore

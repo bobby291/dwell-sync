@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import {
   Search,
   Home,
+  Car,
+  Truck,
   Store,
   Wrench,
   Sparkles,
@@ -20,6 +22,17 @@ const services = [
     description: "Shop & discover",
     icon: Store,
   },
+    {
+    title: "Transportation",
+    description: "Book your ride",
+    icon: Car,
+  },
+  {
+    title: "Logistics",
+    description: "Deliver anything",
+    icon: Truck,
+  },
+
   {
     title: "Services",
     description: "Book trusted pros",
