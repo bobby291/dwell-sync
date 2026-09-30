@@ -8,8 +8,9 @@ import {
   X,
   Home,
   Building2,
+  PlaneLandingIcon,
   BriefcaseBusiness,
-  ShoppingBag,
+  Wrench,
   Badge,
   ChevronDown,
   User,
@@ -32,10 +33,21 @@ export default function Navbar() {
       icon: BriefcaseBusiness,
     },
     {
+      name: "Transportation",
+      href: "/works",
+      icon: PlaneLandingIcon,
+    },
+    {
       name: "Accomodation",
       href: "/accomodaation",
       icon: Badge,
-    }
+    },
+    {
+      name: "Logistics",
+      href: "/works",
+      icon: Wrench,
+    },
+
   ];
 
   return (

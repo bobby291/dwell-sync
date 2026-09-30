@@ -14,7 +14,7 @@ import {
 const categories = [
   {
     title: "Accommodation",
-    description: "Find verified apartments, houses, shortlets and more.",
+    description: "Find verified apartments, homes, shortlets, Reservation & more.",
     image:
       "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
     icon: Home,
@@ -25,7 +25,7 @@ const categories = [
 
   {
     title: "Transportation",
-    description: "Book buses, flights and local rides.",
+    description: "Find trans means by book buses, flights and local rides.",
     image:
       "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80",
     icon: Car,
@@ -36,7 +36,7 @@ const categories = [
 
   {
     title: "Logistics",
-    description: "Fast and reliable delivery services.",
+    description: "Explore the very Fast and reliable delivery services in your city.",
     image:
       "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
     icon: Truck,
@@ -47,7 +47,7 @@ const categories = [
 
   {
     title: "Businesses",
-    description: "Discover and shop from trusted businesses.",
+    description: "Discover businesses around you and shop from trusted businesses.",
     image:
       "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
     icon: Store,
@@ -58,7 +58,7 @@ const categories = [
 
   {
     title: "Services",
-    description: "Book trusted professionals for any service.",
+    description: "Spot top services and book trusted professionals for any service and connect.",
     image:
       "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=80",
     icon: Wrench,

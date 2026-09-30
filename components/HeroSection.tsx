@@ -121,9 +121,9 @@ export default function HeroSection() {
             }}
             className="mt-7 max-w-2xl text-base leading-7 text-gray-400 sm:text-lg"
           >
-            DwellSync is an all-in-one infrastructure that connects
-            accommodation, living, amenities, businesses and services into
-            one intelligent ecosystem.
+            DwellSync is an all-in-one infrastructure ecosystems that connects
+            the living, businesses and services and provide transportation
+            and logistics opportunities to Africans.
           </motion.p>
 
           {/* =================================================
@@ -147,7 +147,7 @@ export default function HeroSection() {
 
                 <input
                   type="text"
-                  placeholder="Search for accommodation, services, businesses..."
+                  placeholder="Search in any African cities, Cairo, Cape Town, Accra, Abuja, Lagos etc.."
                   className="w-full bg-transparent py-4 text-sm text-white outline-none placeholder:text-gray-500 sm:text-base"
                 />
               </div>
