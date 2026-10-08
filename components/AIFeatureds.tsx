@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AIFeatureds() {
   return (
@@ -43,7 +44,7 @@ export default function AIFeatureds() {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-5">
               {/* Primary Button */}
-              <button
+              <Link href='/signin'
                 className="
                   bg-white
                   text-[#051130]
@@ -60,7 +61,7 @@ export default function AIFeatureds() {
                 "
               >
                 Get Started Now
-              </button>
+              </Link>
 
               {/* Secondary Button */}
               <button

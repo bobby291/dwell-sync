@@ -8,7 +8,7 @@ import {
 
 const stats = [
   {
-    title: "Verified Properties",
+    title: "Verified Acceses",
     value: "5,000+",
     subtext: "Manually and AI verified",
     icon: ShieldCheck,

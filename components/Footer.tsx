@@ -209,7 +209,7 @@ export default function Footer() {
           <p className="text-sm text-gray-500">
             Powered by{" "}
             <span className="font-medium text-gray-300">
-              ZieTech Developments Group
+              Dwell
             </span>
           </p>
         </div>

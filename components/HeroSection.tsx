@@ -14,28 +14,28 @@ import {
 const services = [
   {
     title: "Live",
-    description: "Find your perfect stay",
+    description: "Find your perfect stay in the city around you!",
     icon: Home,
   },
   {
     title: "Businesses",
-    description: "Shop & discover",
+    description: "Shop & discover goods in trend, no slacking!",
     icon: Store,
   },
     {
-    title: "Transportation",
-    description: "Book your ride",
+    title: "Mobility",
+    description: "Book flight and find your ride at any time",
     icon: Car,
   },
   {
     title: "Logistics",
-    description: "Deliver anything",
+    description: "Deliver anything once at a time with ease!",
     icon: Truck,
   },
 
   {
     title: "Services",
-    description: "Book trusted pros",
+    description: "Book a nearby service with a click!",
     icon: Wrench,
   },
 ];

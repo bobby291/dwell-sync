@@ -23,7 +23,7 @@ export default function SplashScreen() {
           alt="dwellSync"
           fill
           priority
-          quality={100}
+          quality={75}
           sizes="100vw"
           className="select-none object-contain object-center"
         />

@@ -14,12 +14,24 @@ import {
   Badge,
   ChevronDown,
   User,
+  Car,
+  Bus,
+  Truck,
 } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  // Desktop dropdown states
   const [productsOpen, setProductsOpen] = useState(false);
+  const [transportationOpen, setTransportationOpen] = useState(false);
+
+  // Mobile dropdown states
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [mobileTransportationOpen, setMobileTransportationOpen] =
+    useState(false);
+
+  // ================= PRODUCTS =================
 
   const productLinks = [
     {
@@ -33,11 +45,6 @@ export default function Navbar() {
       icon: BriefcaseBusiness,
     },
     {
-      name: "Transportation",
-      href: "/works",
-      icon: PlaneLandingIcon,
-    },
-    {
       name: "Accomodation",
       href: "/accomodaation",
       icon: Badge,
@@ -47,17 +54,42 @@ export default function Navbar() {
       href: "/works",
       icon: Wrench,
     },
+  ];
 
+  // ================= TRANSPORTATION =================
+
+  const transportationLinks = [
+    {
+      name: "Flight Bookings",
+      href: "/transportation/flights",
+      icon: PlaneLandingIcon,
+    },
+    {
+      name: "Ride Services",
+      href: "/transportation/rides",
+      icon: Car,
+    },
+    {
+      name: "Bus and Intercity Transport",
+      href: "/transportation/bus",
+      icon: Bus,
+    },
+    {
+      name: "Logistics & Travel Connect",
+      href: "/transportation/logistics",
+      icon: Truck,
+    },
   ];
 
   return (
     <>
       {/* ================= DESKTOP NAVBAR ================= */}
+
       <header className="sticky top-0 z-50 w-full border-b border-purple-900/20 bg-[#0B0B16]/95 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-5 lg:px-10">
           <div className="flex h-20 items-center justify-between">
-            
             {/* Logo */}
+
             <Link
               href="/home"
               className="flex items-center transition-transform duration-300 hover:scale-105"
@@ -73,9 +105,10 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden items-center gap-8 lg:flex">
 
+            <nav className="hidden items-center gap-8 lg:flex">
               {/* Home */}
+
               <Link
                 href="/home"
                 className="relative text-sm font-medium text-[#8B7CFF] transition-all duration-300 hover:text-[#7B61FF]"
@@ -85,7 +118,8 @@ export default function Navbar() {
                 <span className="absolute -bottom-3 left-0 h-[3px] w-full rounded-full bg-gradient-to-r from-[#7B61FF] to-[#9F8CFF]" />
               </Link>
 
-              {/* Products */}
+              {/* ================= PRODUCTS ================= */}
+
               <div
                 className="relative"
                 onMouseEnter={() => setProductsOpen(true)}
@@ -107,6 +141,7 @@ export default function Navbar() {
                 </button>
 
                 {/* Desktop Products Dropdown */}
+
                 <div
                   className={`absolute left-1/2 top-full w-64 -translate-x-1/2 pt-4 transition-all duration-200 ${
                     productsOpen
@@ -114,7 +149,7 @@ export default function Navbar() {
                       : "invisible -translate-y-2 opacity-0"
                   }`}
                 >
-                  <div className="overflow-hidden rounded-2xl border border-purple-800/30 bg-[#111122] p-2 ">
+                  <div className="overflow-hidden rounded-2xl border border-purple-800/30 bg-[#111122] p-2">
                     {productLinks.map((item) => {
                       const Icon = item.icon;
 
@@ -139,15 +174,75 @@ export default function Navbar() {
                 </div>
               </div>
 
+              {/* ================= TRANSPORTATION ================= */}
+
+              <div
+                className="relative"
+                onMouseEnter={() => setTransportationOpen(true)}
+                onMouseLeave={() => setTransportationOpen(false)}
+              >
+                <button
+                  type="button"
+                  onClick={() =>
+                    setTransportationOpen(!transportationOpen)
+                  }
+                  className="flex items-center gap-1.5 text-sm font-medium text-gray-300 transition-all duration-300 hover:text-[#7B61FF]"
+                >
+                  Transportation
+
+                  <ChevronDown
+                    size={15}
+                    className={`transition-transform duration-300 ${
+                      transportationOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                {/* Desktop Transportation Dropdown */}
+
+                <div
+                  className={`absolute left-1/2 top-full w-72 -translate-x-1/2 pt-4 transition-all duration-200 ${
+                    transportationOpen
+                      ? "visible translate-y-0 opacity-100"
+                      : "invisible -translate-y-2 opacity-0"
+                  }`}
+                >
+                  <div className="overflow-hidden rounded-2xl border border-purple-800/30 bg-[#111122] p-2">
+                    {transportationLinks.map((item) => {
+                      const Icon = item.icon;
+
+                      return (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className="group flex items-center gap-3 rounded-xl px-3 py-3 text-sm text-gray-300 transition-all duration-200 hover:bg-purple-600/15 hover:text-white"
+                        >
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#17172B] transition-all duration-200 group-hover:bg-purple-600/20">
+                            <Icon
+                              size={17}
+                              className="text-[#8B7CFF]"
+                            />
+                          </div>
+
+                          <span>{item.name}</span>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
               {/* Stories */}
+
               <Link
                 href="/stories"
                 className="text-sm font-medium text-gray-300 transition-all duration-300 hover:text-[#7B61FF]"
               >
-                Explore 
+                Explore
               </Link>
 
               {/* Browse */}
+
               <Link
                 href="/browse"
                 className="text-sm font-medium text-gray-300 transition-all duration-300 hover:text-[#7B61FF]"
@@ -157,9 +252,10 @@ export default function Navbar() {
             </nav>
 
             {/* Desktop Right Side */}
-            <div className="hidden items-center gap-4 lg:flex">
 
+            <div className="hidden items-center gap-4 lg:flex">
               {/* Sign In */}
+
               <Link
                 href="/signin"
                 className="text-sm font-semibold text-gray-300 transition-all duration-300 hover:text-white"
@@ -168,6 +264,7 @@ export default function Navbar() {
               </Link>
 
               {/* Join Waitlist */}
+
               <a
                 href="https://whatsapp.com/C3bWzOTRklZCJmoeAxDhdg"
                 target="_blank"
@@ -178,6 +275,7 @@ export default function Navbar() {
               </a>
 
               {/* Profile */}
+
               <Link
                 href="/profile"
                 className="group flex h-11 w-11 items-center justify-center rounded-full border border-purple-700/30 bg-[#131325] transition-all duration-300 hover:border-purple-500 hover:bg-purple-500/10"
@@ -190,6 +288,7 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu Button */}
+
             <button
               onClick={() => setIsOpen(true)}
               className="flex h-10 w-10 items-center justify-center rounded-full border border-purple-700/30 bg-[#131325] lg:hidden"
@@ -205,6 +304,7 @@ export default function Navbar() {
       </header>
 
       {/* ================= MOBILE OVERLAY ================= */}
+
       <div
         className={`fixed inset-0 z-[90] bg-black/70 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
           isOpen
@@ -215,6 +315,7 @@ export default function Navbar() {
       />
 
       {/* ================= MOBILE SIDEBAR ================= */}
+
       <aside
         className={`fixed left-0 top-0 z-[100] h-screen w-[82%] max-w-[320px] border-r border-purple-800/20 bg-gradient-to-b from-[#0B0B16] via-[#111122] to-[#0F1020] transition-transform duration-300 ease-in-out lg:hidden ${
           isOpen
@@ -223,6 +324,7 @@ export default function Navbar() {
         }`}
       >
         {/* Mobile Header */}
+
         <div className="flex h-[68px] items-center justify-between border-b border-purple-900/20 px-4">
           <Link
             href="/home"
@@ -250,10 +352,11 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Navigation */}
+
         <nav className="px-3 py-3">
           <div className="space-y-1">
-
             {/* Home */}
+
             <Link
               href="/home"
               onClick={() => setIsOpen(false)}
@@ -269,7 +372,8 @@ export default function Navbar() {
               </span>
             </Link>
 
-            {/* Products */}
+            {/* ================= MOBILE PRODUCTS ================= */}
+
             <div>
               <button
                 type="button"
@@ -301,7 +405,8 @@ export default function Navbar() {
                 />
               </button>
 
-              {/* NORMAL FULL-WIDTH DROPDOWN */}
+              {/* Mobile Products Dropdown */}
+
               <div
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${
                   mobileProductsOpen
@@ -310,7 +415,6 @@ export default function Navbar() {
                 }`}
               >
                 <div className="mt-1 rounded-xl border border-purple-800/20 bg-[#151526] p-1.5">
-
                   {productLinks.map((item) => {
                     const Icon = item.icon;
 
@@ -334,12 +438,82 @@ export default function Navbar() {
                       </Link>
                     );
                   })}
+                </div>
+              </div>
+            </div>
 
+            {/* ================= MOBILE TRANSPORTATION ================= */}
+
+            <div>
+              <button
+                type="button"
+                onClick={() =>
+                  setMobileTransportationOpen(
+                    !mobileTransportationOpen
+                  )
+                }
+                className="flex h-11 w-full items-center justify-between rounded-lg px-3 text-gray-300 transition-all duration-200 hover:bg-purple-600/15 hover:text-white"
+              >
+                <div className="flex items-center gap-3">
+                  <PlaneLandingIcon
+                    size={18}
+                    className="text-[#8B7CFF]"
+                  />
+
+                  <span className="text-sm font-medium">
+                    Transportation
+                  </span>
+                </div>
+
+                <ChevronDown
+                  size={17}
+                  className={`text-gray-400 transition-transform duration-300 ${
+                    mobileTransportationOpen
+                      ? "rotate-180"
+                      : ""
+                  }`}
+                />
+              </button>
+
+              {/* Mobile Transportation Dropdown */}
+
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  mobileTransportationOpen
+                    ? "max-h-[360px] opacity-100"
+                    : "max-h-0 opacity-0"
+                }`}
+              >
+                <div className="mt-1 rounded-xl border border-purple-800/20 bg-[#151526] p-1.5">
+                  {transportationLinks.map((item) => {
+                    const Icon = item.icon;
+
+                    return (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className="flex h-12 w-full items-center gap-3 rounded-lg px-3 text-gray-300 transition-all duration-200 hover:bg-purple-600/15 hover:text-white"
+                      >
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#1C1C32]">
+                          <Icon
+                            size={16}
+                            className="text-[#8B7CFF]"
+                          />
+                        </div>
+
+                        <span className="text-sm font-medium">
+                          {item.name}
+                        </span>
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             </div>
 
             {/* Stories */}
+
             <Link
               href="/stories"
               onClick={() => setIsOpen(false)}
@@ -356,6 +530,7 @@ export default function Navbar() {
             </Link>
 
             {/* Browse */}
+
             <Link
               href="/browse"
               onClick={() => setIsOpen(false)}
@@ -373,12 +548,14 @@ export default function Navbar() {
           </div>
 
           {/* Small Divider */}
+
           <div className="my-3 border-t border-purple-900/20" />
 
           {/* Mobile Actions */}
-          <div className="space-y-2">
 
+          <div className="space-y-2">
             {/* Sign In */}
+
             <Link
               href="/signin"
               onClick={() => setIsOpen(false)}
@@ -389,6 +566,7 @@ export default function Navbar() {
             </Link>
 
             {/* Join Waitlist */}
+
             <a
               href="https://whatsapp.com/C3bWzOTRklZCJmoeAxDhdg"
               target="_blank"
@@ -401,7 +579,8 @@ export default function Navbar() {
         </nav>
 
         {/* Bottom Glow */}
-        <div className="pointer-events- none absolute bottom-0 left-0 h-24 w-full bg-gradient-to-t from-purple-700/20 to-transparent" />
+
+        <div className="pointer-events-none absolute bottom-0 left-0 h-24 w-full bg-gradient-to-t from-purple-700/20 to-transparent" />
       </aside>
     </>
   );
