@@ -17,6 +17,7 @@ import {
   Car,
   Bus,
   Truck,
+  Utensils,
 } from "lucide-react";
 
 export default function Navbar() {
@@ -36,7 +37,7 @@ export default function Navbar() {
   const productLinks = [
     {
       name: "Businesses",
-      href: "/business",
+      href: "/shop",
       icon: Building2,
     },
     {
@@ -45,14 +46,14 @@ export default function Navbar() {
       icon: BriefcaseBusiness,
     },
     {
-      name: "Accomodation",
-      href: "/accomodaation",
-      icon: Badge,
+      name: "Living",
+      href: "/accomodation",
+      icon: Home,
     },
     {
-      name: "Logistics",
-      href: "/works",
-      icon: Wrench,
+      name: "Recreation",
+      href: "/recreation",
+      icon: Utensils,
     },
   ];
 
