@@ -32,32 +32,30 @@ export default function ShopUtilityBar({
     event.preventDefault();
 
     const searchQuery = query.trim();
-
     if (!searchQuery) return;
 
     if (onSearch) {
       onSearch(searchQuery);
-    } else {
-      window.location.href = `/shop?search=${encodeURIComponent(searchQuery)}`;
+      setMobileSearchOpen(false);
+      return;
     }
+
+    window.location.href = `/shop?search=${encodeURIComponent(searchQuery)}`;
   }
 
   return (
     <div className="relative z-30 w-full bg-[#0D1B2A] text-white shadow-md">
       <div className="mx-auto flex min-h-[54px] max-w-[1600px] items-center gap-3 px-4 py-2 sm:gap-5 sm:px-6 lg:px-8">
-        {/* Categories dropdown */}
+        {/* Categories */}
         <div className="relative shrink-0">
           <button
             type="button"
             onClick={() => setCategoriesOpen((open) => !open)}
             aria-expanded={categoriesOpen}
+            aria-label="Toggle shop categories"
             className="flex items-center gap-2 rounded-lg py-2 text-sm font-medium transition hover:text-blue-300"
           >
-            {categoriesOpen ? (
-              <X size={19} />
-            ) : (
-              <Menu size={20} />
-            )}
+            {categoriesOpen ? <X size={19} /> : <Menu size={20} />}
 
             <span className="hidden sm:inline">All Categories</span>
 
@@ -96,8 +94,8 @@ export default function ShopUtilityBar({
         {/* Desktop search */}
         <form
           onSubmit={handleSearch}
-          className="mx-auto hidden w-full max-w-2xl items-center overflow-hidden rounded-full bg-white sm:flex"
           role="search"
+          className="mx-auto hidden w-full max-w-2xl items-center overflow-hidden rounded-full bg-white sm:flex"
         >
           <input
             type="search"
@@ -120,11 +118,12 @@ export default function ShopUtilityBar({
         {/* Mobile search toggle */}
         <button
           type="button"
-          aria-label="Open search"
+          aria-label={mobileSearchOpen ? "Close search" : "Open search"}
+          aria-expanded={mobileSearchOpen}
           onClick={() => setMobileSearchOpen((open) => !open)}
           className="ml-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition hover:bg-white/10 sm:hidden"
         >
-          <Search size={20} />
+          {mobileSearchOpen ? <X size={20} /> : <Search size={20} />}
         </button>
 
         {/* Favorites */}
@@ -162,8 +161,8 @@ export default function ShopUtilityBar({
       {mobileSearchOpen && (
         <form
           onSubmit={handleSearch}
-          className="flex gap-2 border-t border-white/10 p-3 sm:hidden"
           role="search"
+          className="flex gap-2 border-t border-white/10 p-3 sm:hidden"
         >
           <input
             type="search"

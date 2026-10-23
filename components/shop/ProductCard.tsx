@@ -1,9 +1,9 @@
 
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useShop } from "@/context/ShopContext";
 import {
   Heart,
   ShoppingCart,
@@ -24,12 +24,14 @@ export default function ProductCard({
   product,
   onAddToCart,
   onToggleFavorite,
-  isFavorite: favoriteProp,
 }: ProductCardProps) {
-  const [localFavorite, setLocalFavorite] = useState(false);
-  const [added, setAdded] = useState(false);
+  const {
+    addToCart,
+    toggleFavorite,
+    isFavorite: checkFavorite,
+  } = useShop();
 
-  const isFavorite = favoriteProp ?? localFavorite;
+  const favorite = checkFavorite(product.id);
 
   const discount =
     product.originalPrice && product.originalPrice > product.price
@@ -44,13 +46,15 @@ export default function ProductCard({
     `₦${price.toLocaleString("en-NG")}`;
 
   function handleFavorite() {
-    setLocalFavorite(!isFavorite);
+    toggleFavorite(product);
     onToggleFavorite?.(product);
   }
 
   function handleAddToCart() {
+    if (!product.inStock) return;
+
+    addToCart(product);
     onAddToCart?.(product);
-    setAdded(true);
   }
 
   return (
@@ -76,14 +80,10 @@ export default function ProductCard({
         {(discount > 0 || product.badge) && (
           <span
             className={`absolute left-2 top-2 z-10 rounded-full px-2 py-1 text-[10px] font-bold text-white sm:text-xs ${
-              discount > 0
-                ? "bg-red-500"
-                : "bg-emerald-600"
+              discount > 0 ? "bg-red-500" : "bg-emerald-600"
             }`}
           >
-            {discount > 0
-              ? `-${discount}%`
-              : product.badge}
+            {discount > 0 ? `-${discount}%` : product.badge}
           </span>
         )}
 
@@ -92,20 +92,20 @@ export default function ProductCard({
           type="button"
           onClick={handleFavorite}
           aria-label={
-            isFavorite
+            favorite
               ? "Remove from favorites"
               : "Add to favorites"
           }
-          aria-pressed={isFavorite}
+          aria-pressed={favorite}
           className={`absolute right-2 top-2 z-10 flex h-8 w-8 items-center justify-center rounded-full border bg-white shadow-sm transition hover:scale-110 ${
-            isFavorite
+            favorite
               ? "border-red-200 text-red-500"
               : "border-slate-200 text-slate-500 hover:text-red-500"
           }`}
         >
           <Heart
             size={16}
-            fill={isFavorite ? "currentColor" : "none"}
+            fill={favorite ? "currentColor" : "none"}
           />
         </button>
       </div>
@@ -178,18 +178,11 @@ export default function ProductCard({
           className={`mt-auto flex min-h-9 w-full items-center justify-center gap-1.5 rounded-lg px-2 py-2 text-xs font-semibold text-white transition sm:mt-3 sm:text-sm ${
             !product.inStock
               ? "cursor-not-allowed bg-slate-300"
-              : added
-                ? "bg-emerald-600 hover:bg-emerald-700"
-                : "bg-blue-600 hover:bg-blue-700 active:scale-[0.98]"
+              : "bg-blue-600 hover:bg-blue-700 active:scale-[0.98]"
           }`}
         >
           {!product.inStock ? (
             "Unavailable"
-          ) : added ? (
-            <>
-              <Check size={15} />
-              Added
-            </>
           ) : (
             <>
               <ShoppingCart size={15} />
