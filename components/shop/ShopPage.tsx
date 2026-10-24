@@ -1,6 +1,5 @@
 
 import ShopUtilityBar from "@/components/shop/ShopUtilityBar";
-import ProductPurchaseActions from "@/components/shop/ProductPurchaseActions";
 
 export default function ShopPage() {
   return (
@@ -10,9 +9,9 @@ export default function ShopPage() {
         favoriteCount={0}
       />
 
-      <ProductPurchaseActions product={product} />
+      {/* Product catalogue, promotions, and categories
+          should be rendered here. */}
 
-      {/* Promotions, categories and product sections come next */}
     </main>
   );
 }

@@ -87,7 +87,7 @@ export default function RecreationPropCard({
           href={`/recreation/${property.id}`}
           className="mt-4 block rounded-xl bg-blue-600 px-4 py-3 text-center text-sm font-semibold text-white transition hover:bg-blue-700"
         >
-          Book Reservation
+          Book. Reservation
         </a>
       </div>
     </article>
